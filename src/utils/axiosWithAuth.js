@@ -7,6 +7,6 @@ export const axiosWithAuth = () => {
     headers: {
       Authorization: token,
     },
-    baseURL: "https://jonstodo.herokuapp.com/",
+    baseURL: "localhost:8000",
   });
 };
