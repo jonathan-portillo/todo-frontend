@@ -1,12 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { createUser } from "../actions/todoActions";
+import { connect } from "react-redux";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import LockedOutIcon from "@mui/icons-material/Assignment";
-import { Avatar } from "@mui/material";
 
-const SignUp = () => {
+const SignUp = (props) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -22,6 +22,12 @@ const SignUp = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(formData);
+  };
+
+  let navigate = useNavigate();
+
+  const logIn = () => {
+    navigate("/tasknotes");
   };
   return (
     <>
@@ -75,4 +81,13 @@ const SignUp = () => {
   );
 };
 
-export default SignUp;
+const mapStateToProps = (state) => {
+  return {
+    signUpForm: state.signUpForm,
+    error: state.error,
+  };
+};
+
+export default connect(mapStateToProps, {
+  createUser,
+})(SignUp);
