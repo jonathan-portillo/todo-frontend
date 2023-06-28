@@ -45,7 +45,7 @@ const Login = () => {
             id="outlined"
             label="Password"
             variant="outlined"
-            type="text"
+            type="password"
             name="password"
             value={formData.password}
             onChange={handleChange}
