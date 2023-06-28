@@ -4,13 +4,13 @@ import { Routes, Route } from "react-router-dom";
 import Landing from "./components/landing";
 import SignUp from "./components/signup";
 import About from "./components/about";
-import Todo from "./components/todo";
+import TaskNotes from "./components/task";
 
 function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/home" element={<Todo />} />
+        <Route path="/tasknotes" element={<TaskNotes />} />
         <Route path="/about" element={<About />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/" element={<Landing />} />
