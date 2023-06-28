@@ -1,3 +1,5 @@
+import { ADD_NEW_USER } from "../actions/todoActions";
+
 const initialState = {
   signUpForm: {
     username: "",
@@ -9,4 +11,13 @@ const initialState = {
   },
 };
 
-export const todoReducer = (state = initialState, action) => {};
+export const todoReducer = (state = initialState, action) => {
+  switch (action.type) {
+    case ADD_NEW_USER:
+      return {
+        ...state,
+      };
+    default:
+      return state;
+  }
+};
