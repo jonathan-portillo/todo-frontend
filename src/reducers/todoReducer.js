@@ -1,4 +1,4 @@
-import { ADD_NEW_USER } from "../actions/todoActions";
+import { ADD_NEW_USER, HANDLE_CHANGE_SIGNUP } from "../actions/todoActions";
 
 const initialState = {
   signUpForm: {
@@ -16,6 +16,14 @@ export const todoReducer = (state = initialState, action) => {
     case ADD_NEW_USER:
       return {
         ...state,
+      };
+    case HANDLE_CHANGE_SIGNUP:
+      return {
+        ...state,
+        signUpForm: {
+          ...state.signUpForm,
+          [action.payload.target.name]: action.payload.target.value,
+        },
       };
     default:
       return state;
