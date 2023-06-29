@@ -2,10 +2,10 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
-import LockedOutIcon from "@mui/icons-material/Assignment";
-import { Avatar } from "@mui/material";
+import { connect } from "react-redux";
+import { handle_change_login, logUserIn } from "../actions/todoActions";
 
-const Login = () => {
+const Login = (props) => {
   const [formData, setFormData] = useState({
     username: "",
     password: "",
@@ -24,7 +24,14 @@ const Login = () => {
   };
   return (
     <>
-      <form className="loggingin" onSubmit={handleSubmit}>
+      <form
+        className="loggingin"
+        onSubmit={async (e) => {
+          e.preventDefault();
+          await props.logUserIn(props.loginForm);
+          console.log(props.loginForm);
+        }}
+      >
         <label htmlFor="username">
           <Textfield
             className="textfield"
@@ -33,8 +40,8 @@ const Login = () => {
             variant="outlined"
             type="text"
             name="username"
-            value={formData.username}
-            onChange={handleChange}
+            value={props.loginForm.username}
+            onChange={props.handle_change_login}
           />
         </label>
         <br />
@@ -42,13 +49,13 @@ const Login = () => {
         <label htmlFor="password">
           <Textfield
             className="textfield"
-            id="outlined"
+            id="password"
             label="Password"
             variant="outlined"
             type="password"
             name="password"
-            value={formData.password}
-            onChange={handleChange}
+            value={props.loginForm.password}
+            onChange={props.handle_change_login}
           />
         </label>
         <br />
@@ -63,4 +70,12 @@ const Login = () => {
   );
 };
 
-export default Login;
+const mapStateToProps = (state) => {
+  return {
+    loginForm: state.loginForm,
+  };
+};
+
+export default connect(mapStateToProps, { logUserIn, handle_change_login })(
+  Login
+);
