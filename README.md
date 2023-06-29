@@ -7,4 +7,5 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
-Finished styling landing page and sign up page. Connect Repository to have a running link https://task-notes-omega.vercel.app/ . Next step is to connect backend auth to front end so that we can have a working log in and sign up page.
+- Finished connecting log in and sign up to backend. Next I'm looking to add a few functions for functionality. Logging in will send to dashboard so with signing up. Also planning on adding verification, ex. wrong password/username, username already exists. Also need to create a PrivateRoute for dashboards. Ensure that users are logged in to even access that page.
+- Finished styling landing page and sign up page. Connect Repository to have a running link https://task-notes-omega.vercel.app/ . Next step is to connect backend auth to front end so that we can have a working log in and sign up page.
