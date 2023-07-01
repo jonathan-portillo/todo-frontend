@@ -1,10 +1,12 @@
 import React from "react";
+import Nav from "../components/nav";
 
 const TaskNotes = () => {
   return (
-    <div>
-      This is a sideproject Im working on feedback would be gladly appreciated
-    </div>
+    <>
+      <Nav />
+      <div>Alllllllll notes go in hereeeeeee!</div>
+    </>
   );
 };
 

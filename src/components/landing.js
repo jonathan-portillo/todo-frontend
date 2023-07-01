@@ -5,13 +5,12 @@ import { Button } from "@mui/material";
 import Paper from "@mui/material/Paper";
 import LockedOutIcon from "@mui/icons-material/Assignment";
 import { Avatar } from "@mui/material";
+import Nav from "../components/nav";
 
 const Landing = () => {
   return (
     <>
-      <header className="navbarhome">
-        <Link to="/about">About</Link>
-      </header>
+      <Nav />
       <div className="homebox">
         <div className="mottobox">
           <p className="thatsthemotto">Task Notes</p>

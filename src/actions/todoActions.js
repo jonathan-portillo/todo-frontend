@@ -18,8 +18,8 @@ export const createUser = (newUser) => (dispatch) => {
         payload: res.data,
       });
       console.log(res.data);
-      localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
+      localStorage.setItem("token", res.data.token);
     })
     .catch((err) => {
       dispatch({
@@ -35,8 +35,10 @@ export const logUserIn = (cred) => (dispatch) => {
     .post("/auth/login", cred)
     .then((res) => {
       dispatch({ type: LOGIN_SUCESS, payload: res.data });
+
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
+      localStorage.setItem("id", res.data.id);
     })
     .catch((err) => {
       dispatch({

@@ -1,21 +1,30 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate, Navigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import { connect } from "react-redux";
 import { handle_change_login, logUserIn } from "../actions/todoActions";
 
 const Login = (props) => {
+  const navigate = useNavigate();
+
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   props.logUserIn(props.loginForm);
+  //   navigate("/tasknotes");
+  // };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    await props.logUserIn(props.loginForm);
+
+    navigate("/tasknotes");
+  };
+
   return (
     <>
-      <form
-        className="loggingin"
-        onSubmit={async (e) => {
-          e.preventDefault();
-          await props.logUserIn(props.loginForm);
-          console.log(props.loginForm);
-        }}
-      >
+      <form className="loggingin" onSubmit={handleSubmit}>
         <label htmlFor="username">
           <Textfield
             className="textfield"

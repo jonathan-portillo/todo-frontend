@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
+import Nav from "../components/nav";
 
 const SignUp = (props) => {
   let navigate = useNavigate();
@@ -14,9 +15,7 @@ const SignUp = (props) => {
   };
   return (
     <>
-      <header className="navbarhome">
-        <Link to="/about">About</Link>
-      </header>
+      <Nav />
       <Paper className="signupbox">
         <header className="signupinfo">
           <p>Sign Up Here!!</p>
