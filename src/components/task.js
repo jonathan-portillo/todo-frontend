@@ -1,13 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Nav from "../components/nav";
+import NewTask from "./newtask";
 
-const TaskNotes = () => {
+const Task = () => {
   return (
     <>
       <Nav />
-      <div>Alllllllll notes go in hereeeeeee!</div>
+      <NewTask />
     </>
   );
 };
 
-export default TaskNotes;
+export default Task;
