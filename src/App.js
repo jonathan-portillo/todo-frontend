@@ -6,7 +6,7 @@ import LoggedIn from "./utils/isloggedin";
 import Landing from "./components/landing";
 import SignUp from "./components/signup";
 import About from "./components/about";
-import TaskNotes from "./components/task";
+import Task from "./components/task";
 
 function App() {
   return (
@@ -16,7 +16,7 @@ function App() {
           path="/tasknotes"
           element={
             <PrivateRoute>
-              <TaskNotes />
+              <Task />
             </PrivateRoute>
           }
         />
