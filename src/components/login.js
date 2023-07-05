@@ -8,12 +8,6 @@ import { handle_change_login, logUserIn } from "../actions/todoActions";
 const Login = (props) => {
   const navigate = useNavigate();
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   props.logUserIn(props.loginForm);
-  //   navigate("/tasknotes");
-  // };
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
