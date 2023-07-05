@@ -16,6 +16,10 @@ export const NEW_TASK = "NEW_TASK";
 export const NEW_TASK_SUCCESS = "NEW_TASK_SUCCESS";
 export const NEW_TASK_FAIL = "NEW_TASK_FAIL";
 
+export const FETCH_TASKS = "FETCH_TASKS";
+export const FETCH_TASKS_SUCCESS = "FETCH_TASKS_SUCCESS";
+export const FETCH_TASKS_FAIL = "FETCH_TASKS_FAIL";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -72,6 +76,22 @@ export const createNewTask = (task) => (dispatch) => {
       dispatch({
         type: NEW_TASK_FAIL,
         payload: "Not sending title please help please",
+      });
+    });
+};
+
+//GET A LIST OF USER TASKS
+export const getTasks = (task) => (dispatch) => {
+  dispatch({ type: FETCH_TASKS });
+  axiosWithAuth()
+    .get(`title/user/${localStorage.getItem("id")}`, task)
+    .then((res) => {
+      dispatch({ type: FETCH_TASKS_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: FETCH_TASKS_FAIL,
+        payload: "Why cant we seeeeeeeeeee our stuffffffffff",
       });
     });
 };
