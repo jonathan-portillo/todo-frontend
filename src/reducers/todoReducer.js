@@ -6,6 +6,8 @@ import {
   NEW_TASK,
   HANDLE_CHANGE_NEW_TASK,
   NEW_TASK_SUCCESS,
+  FETCH_TASKS,
+  FETCH_TASKS_SUCCESS,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -20,6 +22,7 @@ const initialState = {
   newTask: {
     todo_title: "",
   },
+  allTasks: [],
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -43,6 +46,15 @@ export const todoReducer = (state = initialState, action) => {
     case NEW_TASK_SUCCESS:
       return {
         ...state,
+      };
+    case FETCH_TASKS:
+      return {
+        ...state,
+      };
+    case FETCH_TASKS_SUCCESS:
+      return {
+        ...state,
+        allTasks: [action.payload],
       };
     case HANDLE_CHANGE_SIGNUP:
       return {
