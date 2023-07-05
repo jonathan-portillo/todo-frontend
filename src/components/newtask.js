@@ -1,21 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import { createNewTask, handle_change_newtask } from "../actions/todoActions";
 
-const NewTask = () => {
-  const [title, setTitle] = useState("");
-
-  const handleSubmit = (e) => {
+const NewTask = (props) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { title });
+
+    await props.createNewTask(props.newTask);
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label>
-          New Task
+        <label htmlFor="todo_title">
+          Todo Title
           <input
+            id="todo_title"
+            label="todo_title"
+            name="todo_title"
             type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
+            value={props.newTask.todo_title}
+            onChange={props.handle_change_newtask}
           />
         </label>
         <button type="submit">Submit</button>
@@ -24,4 +28,13 @@ const NewTask = () => {
   );
 };
 
-export default NewTask;
+const mapStateToProps = (state) => {
+  return {
+    newTask: state.newTask,
+  };
+};
+
+export default connect(mapStateToProps, {
+  handle_change_newtask,
+  createNewTask,
+})(NewTask);
