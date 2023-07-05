@@ -3,6 +3,9 @@ import {
   HANDLE_CHANGE_SIGNUP,
   LOGIN,
   HANDLE_CHANGE_LOGIN,
+  NEW_TASK,
+  HANDLE_CHANGE_NEW_TASK,
+  NEW_TASK_SUCCESS,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -14,6 +17,9 @@ const initialState = {
     username: "",
     password: "",
   },
+  newTask: {
+    todo_title: "",
+  },
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -23,6 +29,18 @@ export const todoReducer = (state = initialState, action) => {
         ...state,
       };
     case LOGIN:
+      return {
+        ...state,
+      };
+    case NEW_TASK: {
+      return {
+        ...state,
+        newTask: {
+          todo_title: "",
+        },
+      };
+    }
+    case NEW_TASK_SUCCESS:
       return {
         ...state,
       };
@@ -39,6 +57,14 @@ export const todoReducer = (state = initialState, action) => {
         ...state,
         loginForm: {
           ...state.loginForm,
+          [action.payload.target.name]: action.payload.target.value,
+        },
+      };
+    case HANDLE_CHANGE_NEW_TASK:
+      return {
+        ...state,
+        newTask: {
+          ...state.newTask,
           [action.payload.target.name]: action.payload.target.value,
         },
       };
