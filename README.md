@@ -7,6 +7,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- Doing a bit of brain storming. Trying to figure out the design of the dashboard.
 - Can now display all tasks created on dashboard. Next will be implementing fuctionality and working on rerendering pages when submitting a new task.
 - Fixed issue with calling on todo_title end points. Next is going to be displaying a list of those titles.
 - Created new components for Task Notes, going to return to log in route issue later. I want to focus on functionality for now. Having issues posting a new title however. Going to revist tomorrow after some rest.
