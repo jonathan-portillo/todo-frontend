@@ -7,7 +7,7 @@ const CurrentTasks = (props) => {
     props.getTasks(props.allTasks);
   }, []);
 
-  console.log("where info is stored", props.allTasks);
+  console.log(props.allTasks);
 
   return (
     <>
