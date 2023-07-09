@@ -6,7 +6,7 @@ import NoteDescription from "./noteDescription";
 const CurrentTasks = (props) => {
   useEffect(() => {
     props.getTasks(props.allTasks);
-  }, [props.AllTass, props.getTasks]);
+  }, [props.allTasks, props.getTasks]);
 
   return (
     <>
