@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { getTasks } from "../actions/todoActions";
 import { connect } from "react-redux";
+import NoteDescription from "./noteDescription";
 
 const CurrentTasks = (props) => {
   useEffect(() => {
@@ -16,7 +17,12 @@ const CurrentTasks = (props) => {
       <div>
         {props.allTasks.map((res) => {
           return res.map((res) => {
-            return <p key={res.id}>{res.todo_title}</p>;
+            return (
+              <>
+                <p key={res.id}>{res.todo_title}</p>
+                <NoteDescription />
+              </>
+            );
           });
         })}
       </div>
