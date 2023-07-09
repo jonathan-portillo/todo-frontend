@@ -7,6 +7,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- Alot of progress tonight, fixed issue with components not rerendering on submits. I complely missed updating allTask state. Created a delete button for my tasks. All thats really left now is to make sure that the descriptions are functioning, need to connect noteDescription to global state.
 - Doing a bit of brain storming. Trying to figure out the design of the dashboard.
 - Can now display all tasks created on dashboard. Next will be implementing fuctionality and working on rerendering pages when submitting a new task.
 - Fixed issue with calling on todo_title end points. Next is going to be displaying a list of those titles.
