@@ -2,13 +2,14 @@ import React, { useEffect } from "react";
 import { getTasks } from "../actions/todoActions";
 import { connect } from "react-redux";
 import NoteDescription from "./noteDescription";
+import { Title } from "@mui/icons-material";
 
 const CurrentTasks = (props) => {
   useEffect(() => {
     props.getTasks(props.allTasks);
   }, []);
 
-  console.log(props.allTasks);
+  console.log("Info is here", props.allTasks);
 
   return (
     <>
@@ -16,12 +17,12 @@ const CurrentTasks = (props) => {
       <br />
       <div>
         {props.allTasks.map((res) => {
-          return res.map((res) => {
+          return res.map((task) => {
             return (
-              <>
-                <p key={res.id}>{res.todo_title}</p>
-                <NoteDescription />
-              </>
+              <div key={task.id}>
+                <p>{task.todo_title}</p>
+                <NoteDescription id={task.id} title={task.todo_title} />
+              </div>
             );
           });
         })}

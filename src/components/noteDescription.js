@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-const NoteDescription = () => {
+const NoteDescription = (props) => {
   const [description, setDescription] = useState("");
 
   const handleSubmit = (e) => {
@@ -11,7 +11,7 @@ const NoteDescription = () => {
     <>
       <form onSubmit={handleSubmit}>
         <label>
-          Describe Note
+          Description for {props.title}
           <input
             type="text"
             value={description}
