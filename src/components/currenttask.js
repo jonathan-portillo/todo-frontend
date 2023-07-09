@@ -1,31 +1,32 @@
 import React, { useEffect } from "react";
-import { getTasks } from "../actions/todoActions";
+import { getTasks, deleteTask } from "../actions/todoActions";
 import { connect } from "react-redux";
 import NoteDescription from "./noteDescription";
-import { Title } from "@mui/icons-material";
 
 const CurrentTasks = (props) => {
   useEffect(() => {
     props.getTasks(props.allTasks);
-  }, []);
-
-  console.log("Info is here", props.allTasks);
+  }, [props.AllTass, props.getTasks]);
 
   return (
     <>
       <div>All my notes are here </div>
       <br />
       <div>
-        {props.allTasks.map((res) => {
-          return res.map((task) => {
-            return (
-              <div key={task.id}>
-                <p>{task.todo_title}</p>
-                <NoteDescription id={task.id} title={task.todo_title} />
-              </div>
-            );
-          });
-        })}
+        {props.allTasks.map((task) => (
+          <div key={task.id}>
+            <p>{task.todo_title}</p>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                props.deleteTask(task.id);
+              }}
+            >
+              Delete
+            </button>
+            <NoteDescription id={task.id} title={task.todo_title} />
+          </div>
+        ))}
       </div>
     </>
   );
@@ -38,4 +39,5 @@ const mapStateToProps = (state) => {
 
 export default connect(mapStateToProps, {
   getTasks,
+  deleteTask,
 })(CurrentTasks);
