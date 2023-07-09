@@ -8,6 +8,8 @@ import {
   NEW_TASK_SUCCESS,
   FETCH_TASKS,
   FETCH_TASKS_SUCCESS,
+  DELETE_TASK,
+  DELETE_TASK_SUCCESS,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -46,15 +48,26 @@ export const todoReducer = (state = initialState, action) => {
     case NEW_TASK_SUCCESS:
       return {
         ...state,
+        allTasks: [...state.allTasks, action.payload],
       };
     case FETCH_TASKS:
       return {
         ...state,
       };
+    case DELETE_TASK:
+      return {
+        ...state,
+      };
+    case DELETE_TASK_SUCCESS:
+      const deletedTaskId = action.payload.taskId;
+      return {
+        ...state,
+        allTasks: state.allTasks.filter((task) => task.id !== deletedTaskId),
+      };
     case FETCH_TASKS_SUCCESS:
       return {
         ...state,
-        allTasks: [action.payload],
+        allTasks: action.payload,
       };
     case HANDLE_CHANGE_SIGNUP:
       return {
