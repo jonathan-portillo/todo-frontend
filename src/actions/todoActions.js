@@ -9,12 +9,16 @@ export const HANDLE_CHANGE_LOGIN = "HANDLE_CHANGE_LOGIN";
 export const HANDLE_CHANGE_NEW_TASK = "HANDLE_CHANGE_NEW_TASK";
 
 export const LOGIN = "LOGIN";
-export const LOGIN_SUCESS = "LOGIN_SUCCESS";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
 export const NEW_TASK = "NEW_TASK";
 export const NEW_TASK_SUCCESS = "NEW_TASK_SUCCESS";
 export const NEW_TASK_FAIL = "NEW_TASK_FAIL";
+
+export const DELETE_TASK = "DELETE_TASK";
+export const DELETE_TASK_SUCCESS = "DELETE_TASK_SUCCESS";
+export const DELETE_TASK_FAIL = "DELETE_TASK_FAIL";
 
 export const FETCH_TASKS = "FETCH_TASKS";
 export const FETCH_TASKS_SUCCESS = "FETCH_TASKS_SUCCESS";
@@ -48,7 +52,7 @@ export const logUserIn = (cred) => (dispatch) => {
   axiosWithAuth()
     .post("/auth/login", cred)
     .then((res) => {
-      dispatch({ type: LOGIN_SUCESS, payload: res.data });
+      dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 
       console.log(res.data);
       localStorage.setItem("token", res.data.token);
@@ -69,7 +73,11 @@ export const createNewTask = (task) => (dispatch) => {
   axiosWithAuth()
     .post(`/title/user/${localStorage.getItem("id")}`, task)
     .then((res) => {
-      dispatch({ type: NEW_TASK_SUCCESS, payload: res.data });
+      dispatch({
+        type: NEW_TASK_SUCCESS,
+        payload: { ...res.data, userId: localStorage.getItem("id") },
+      });
+
       console.log(res.data);
     })
     .catch((err) => {
@@ -77,6 +85,20 @@ export const createNewTask = (task) => (dispatch) => {
         type: NEW_TASK_FAIL,
         payload: "Not sending title please help please",
       });
+    });
+};
+
+//DELETE A TASK
+
+export const deleteTask = (titleId) => (dispatch) => {
+  dispatch({ type: DELETE_TASK });
+  axiosWithAuth()
+    .delete(`/title/${titleId}`)
+    .then((res) => {
+      dispatch({ type: DELETE_TASK_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({ type: DELETE_TASK_FAIL, payload: err.response.data });
     });
 };
 
