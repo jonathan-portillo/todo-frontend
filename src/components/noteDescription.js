@@ -7,6 +7,7 @@ const NoteDescription = (props) => {
     e.preventDefault();
     console.log("Form submitted:", { description });
   };
+
   return (
     <>
       <form onSubmit={handleSubmit}>
