@@ -25,6 +25,10 @@ const initialState = {
     todo_title: "",
   },
   allTasks: [],
+  newNoteDescription: {
+    todo_list: "",
+  },
+  allUserNotes: [],
 };
 
 export const todoReducer = (state = initialState, action) => {
