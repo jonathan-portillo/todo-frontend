@@ -1,11 +1,18 @@
 import React, { useState } from "react";
+import { connect } from "react-redux";
+import {
+  createNewNote,
+  handle_change_note_description,
+} from "../actions/todoActions";
 
 const NoteDescription = (props) => {
-  const [description, setDescription] = useState("");
+  console.log("props", props);
 
-  const handleSubmit = (e) => {
+  const id = props.id;
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form submitted:", { description });
+    await props.createNewNote(id, props.newNoteDescription);
   };
 
   return (
@@ -14,9 +21,12 @@ const NoteDescription = (props) => {
         <label>
           Description for {props.title}
           <input
+            id="todo_list"
+            label="todo_list"
+            name="todo_list"
             type="text"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
+            value={props.newNoteDescription.todo_list}
+            onChange={props.handle_change_note_description}
           />
         </label>
         <button type="submit">Submit</button>
@@ -25,4 +35,13 @@ const NoteDescription = (props) => {
   );
 };
 
-export default NoteDescription;
+const mapStateToProps = (state) => {
+  return {
+    newNoteDescription: state.newNoteDescription,
+  };
+};
+
+export default connect(mapStateToProps, {
+  createNewNote,
+  handle_change_note_description,
+})(NoteDescription);

@@ -10,6 +10,10 @@ import {
   FETCH_TASKS_SUCCESS,
   DELETE_TASK,
   DELETE_TASK_SUCCESS,
+  HANDLE_CHANGE_NOTE_DESCRIPTION,
+  NEW_NOTE_DESCRIPTION,
+  NEW_NOTE_DESCRIPTION_SUCCESS,
+  NEW_NOTE_DESCRIPTION_FAIL,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -62,6 +66,20 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case NEW_NOTE_DESCRIPTION: {
+      return {
+        ...state,
+        newNoteDescription: {
+          todo_list: "",
+        },
+      };
+    }
+    case NEW_NOTE_DESCRIPTION_SUCCESS: {
+      return {
+        ...state,
+        allUserNotes: [...state.allUserNotes, action.payload],
+      };
+    }
     case DELETE_TASK_SUCCESS:
       const deletedTaskId = action.payload.taskId;
       return {
@@ -97,6 +115,15 @@ export const todoReducer = (state = initialState, action) => {
           [action.payload.target.name]: action.payload.target.value,
         },
       };
+    case HANDLE_CHANGE_NOTE_DESCRIPTION: {
+      return {
+        ...state,
+        newNoteDescription: {
+          ...state.newNoteDescription,
+          [action.payload.target.name]: action.payload.target.value,
+        },
+      };
+    }
     default:
       return state;
   }

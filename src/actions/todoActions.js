@@ -123,6 +123,26 @@ export const getTasks = (task) => (dispatch) => {
     });
 };
 
+//create a new note connected to task
+export const createNewNote = (id, notes) => (dispatch) => {
+  dispatch({ type: NEW_NOTE_DESCRIPTION });
+  axiosWithAuth()
+    .post(`/todoList/${id}/title`, notes)
+    .then((res) => {
+      dispatch({
+        type: NEW_NOTE_DESCRIPTION_SUCCESS,
+        payload: res.data,
+      });
+      console.log(res);
+    })
+    .catch((err) => {
+      dispatch({
+        type: NEW_NOTE_DESCRIPTION_FAIL,
+        payload: "Couldnt create the note try again",
+      });
+    });
+};
+
 export const handle_change_login = (e) => (dispatch) => {
   dispatch({ type: HANDLE_CHANGE_LOGIN, payload: e });
 };
@@ -133,4 +153,8 @@ export const handle_change_signup = (e) => (dispatch) => {
 
 export const handle_change_newtask = (e) => (dispatch) => {
   dispatch({ type: HANDLE_CHANGE_NEW_TASK, payload: e });
+};
+
+export const handle_change_note_description = (e) => (dispatch) => {
+  dispatch({ type: HANDLE_CHANGE_NOTE_DESCRIPTION, payload: e });
 };
