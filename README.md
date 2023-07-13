@@ -7,6 +7,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- For some reason, When creating a Task the notes from prior users are showing, trying to debug to figure out why. Last issue to hurdle over and then design is going to be a main priority.
 - Alot of progress tonight, fixed issue with components not rerendering on submits. I complely missed updating allTask state. Created a delete button for my tasks. All thats really left now is to make sure that the descriptions are functioning, need to connect noteDescription to global state.
 - Doing a bit of brain storming. Trying to figure out the design of the dashboard.
 - Can now display all tasks created on dashboard. Next will be implementing fuctionality and working on rerendering pages when submitting a new task.
