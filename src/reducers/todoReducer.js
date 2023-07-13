@@ -13,7 +13,8 @@ import {
   HANDLE_CHANGE_NOTE_DESCRIPTION,
   NEW_NOTE_DESCRIPTION,
   NEW_NOTE_DESCRIPTION_SUCCESS,
-  NEW_NOTE_DESCRIPTION_FAIL,
+  FETCH_NOTES,
+  FETCH_NOTES_SUCCESS,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -62,6 +63,11 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
       };
+    case FETCH_TASKS_SUCCESS:
+      return {
+        ...state,
+        allTasks: action.payload,
+      };
     case DELETE_TASK:
       return {
         ...state,
@@ -80,17 +86,23 @@ export const todoReducer = (state = initialState, action) => {
         allUserNotes: [...state.allUserNotes, action.payload],
       };
     }
+    case FETCH_NOTES: {
+      return {
+        ...state,
+      };
+    }
+    case FETCH_NOTES_SUCCESS:
+      return {
+        ...state,
+        allUserNotes: [...state.allUserNotes, action.payload],
+      };
     case DELETE_TASK_SUCCESS:
       const deletedTaskId = action.payload.taskId;
       return {
         ...state,
         allTasks: state.allTasks.filter((task) => task.id !== deletedTaskId),
       };
-    case FETCH_TASKS_SUCCESS:
-      return {
-        ...state,
-        allTasks: action.payload,
-      };
+
     case HANDLE_CHANGE_SIGNUP:
       return {
         ...state,

@@ -1,14 +1,19 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   createNewNote,
   handle_change_note_description,
+  getNotes,
 } from "../actions/todoActions";
 
 const NoteDescription = (props) => {
-  console.log("props", props);
-
   const id = props.id;
+
+  useEffect(() => {
+    props.getNotes(id);
+  }, [id, props.getNotes]);
+
+  console.log("Info is here", props.allUserNotes);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -31,6 +36,13 @@ const NoteDescription = (props) => {
         </label>
         <button type="submit">Submit</button>
       </form>
+
+      <div>Display Notes here</div>
+      <div>
+        {props.allUserNotes.map((note) => (
+          <p>{note.todo_list}</p>
+        ))}
+      </div>
     </>
   );
 };
@@ -38,10 +50,12 @@ const NoteDescription = (props) => {
 const mapStateToProps = (state) => {
   return {
     newNoteDescription: state.newNoteDescription,
+    allUserNotes: state.allUserNotes,
   };
 };
 
 export default connect(mapStateToProps, {
   createNewNote,
   handle_change_note_description,
+  getNotes,
 })(NoteDescription);

@@ -29,6 +29,10 @@ export const FETCH_TASKS = "FETCH_TASKS";
 export const FETCH_TASKS_SUCCESS = "FETCH_TASKS_SUCCESS";
 export const FETCH_TASKS_FAIL = "FETCH_TASKS_FAIL";
 
+export const FETCH_NOTES = "FETCH_NOTES";
+export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
+export const FETCH_NOTES_FAIL = "FETCH_NOTES_FAIL";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -123,15 +127,20 @@ export const getTasks = (task) => (dispatch) => {
     });
 };
 
-//create a new note connected to task
+//CREATE A NOTE ATTACHED TO TASK
 export const createNewNote = (id, notes) => (dispatch) => {
   dispatch({ type: NEW_NOTE_DESCRIPTION });
   axiosWithAuth()
     .post(`/todoList/${id}/title`, notes)
     .then((res) => {
+      const newNote = {
+        id: res.data.id,
+        title_id: id,
+        todo_list: res.data.todo_list,
+      };
       dispatch({
         type: NEW_NOTE_DESCRIPTION_SUCCESS,
-        payload: res.data,
+        payload: newNote,
       });
       console.log(res);
     })
@@ -139,6 +148,22 @@ export const createNewNote = (id, notes) => (dispatch) => {
       dispatch({
         type: NEW_NOTE_DESCRIPTION_FAIL,
         payload: "Couldnt create the note try again",
+      });
+    });
+};
+
+//RETIEVE THE NOTES FROM THE TASK
+export const getNotes = (id, notes) => (dispatch) => {
+  dispatch({ type: FETCH_NOTES });
+  axiosWithAuth()
+    .get(`/todoList/${id}/title`, notes)
+    .then((res) => {
+      dispatch({ type: FETCH_NOTES_SUCCESS, payload: res.data });
+    })
+    .catch((err) => {
+      dispatch({
+        type: FETCH_NOTES_FAIL,
+        payload: "OOOOOOOOOOOFFFF",
       });
     });
 };
