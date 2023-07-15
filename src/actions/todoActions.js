@@ -134,7 +134,6 @@ export const createNewNote = (id, notes) => (dispatch) => {
     .post(`/todoList/${id}/title`, notes)
     .then((res) => {
       const newNote = {
-        id: res.data.id,
         title_id: id,
         todo_list: res.data.todo_list,
       };
