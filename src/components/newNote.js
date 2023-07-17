@@ -14,11 +14,8 @@ const NewNote = (props) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle the note submission here
     props.createNewNote(props.id, props.newNewnoteDescription);
-
-    // Reset the input field after submission
-    setNoteDescription("");
+    handle_change_note_description("");
   };
 
   return (
