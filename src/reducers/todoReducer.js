@@ -130,10 +130,7 @@ export const todoReducer = (state = initialState, action) => {
     case HANDLE_CHANGE_NOTE_DESCRIPTION: {
       return {
         ...state,
-        newNoteDescription: {
-          ...state.newNoteDescription,
-          [action.payload.target.name]: action.payload.target.value,
-        },
+        newNoteDescription: action.payload,
       };
     }
     default:
