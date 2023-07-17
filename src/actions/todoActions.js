@@ -134,14 +134,13 @@ export const createNewNote = (id, notes) => (dispatch) => {
     .post(`/todoList/${id}/title`, notes)
     .then((res) => {
       const newNote = {
-        title_id: id,
         todo_list: res.data.todo_list,
       };
       dispatch({
         type: NEW_NOTE_DESCRIPTION_SUCCESS,
         payload: newNote,
       });
-      console.log(res);
+      console.log(res.data);
     })
     .catch((err) => {
       dispatch({
