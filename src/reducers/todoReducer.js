@@ -39,63 +39,55 @@ const initialState = {
 export const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_USER:
-      return {
-        ...state,
-      };
+      return state;
+
     case LOGIN:
-      return {
-        ...state,
-      };
-    case NEW_TASK: {
-      return {
-        ...state,
-        newTask: {
-          todo_title: "",
-        },
-      };
-    }
+      return state;
+
+    case NEW_TASK:
+      return state;
+
     case NEW_TASK_SUCCESS:
       return {
         ...state,
         allTasks: [...state.allTasks, action.payload],
       };
+
     case FETCH_TASKS:
-      return {
-        ...state,
-      };
+      return state;
+
     case FETCH_TASKS_SUCCESS:
       return {
         ...state,
         allTasks: action.payload,
       };
+
     case DELETE_TASK:
-      return {
-        ...state,
-      };
-    case NEW_NOTE_DESCRIPTION: {
+      return state;
+
+    case NEW_NOTE_DESCRIPTION:
       return {
         ...state,
         newNoteDescription: {
           todo_list: "",
         },
       };
-    }
-    case NEW_NOTE_DESCRIPTION_SUCCESS: {
+
+    case NEW_NOTE_DESCRIPTION_SUCCESS:
       return {
         ...state,
         allUserNotes: [...state.allUserNotes, action.payload],
       };
-    }
-    case FETCH_NOTES: {
-      return {
-        ...state,
-      };
-    }
+
+    case FETCH_NOTES:
+      return state;
+
     case FETCH_NOTES_SUCCESS:
       return {
         ...state,
-        allUserNotes: [...state.allUserNotes, action.payload],
+        allUserNotes: action.payload,
       };
+
     case DELETE_TASK_SUCCESS:
       const deletedTaskId = action.payload.taskId;
       return {
@@ -111,6 +103,7 @@ export const todoReducer = (state = initialState, action) => {
           [action.payload.target.name]: action.payload.target.value,
         },
       };
+
     case HANDLE_CHANGE_LOGIN:
       return {
         ...state,
@@ -119,6 +112,7 @@ export const todoReducer = (state = initialState, action) => {
           [action.payload.target.name]: action.payload.target.value,
         },
       };
+
     case HANDLE_CHANGE_NEW_TASK:
       return {
         ...state,
@@ -127,12 +121,13 @@ export const todoReducer = (state = initialState, action) => {
           [action.payload.target.name]: action.payload.target.value,
         },
       };
-    case HANDLE_CHANGE_NOTE_DESCRIPTION: {
+
+    case HANDLE_CHANGE_NOTE_DESCRIPTION:
       return {
         ...state,
         newNoteDescription: action.payload,
       };
-    }
+
     default:
       return state;
   }
