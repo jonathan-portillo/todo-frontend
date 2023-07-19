@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { connect } from "react-redux";
 import {
   handle_change_note_description,
@@ -6,15 +6,14 @@ import {
 } from "../actions/todoActions";
 
 const NewNote = (props) => {
-  const handleChange = (e) => {
-    handle_change_note_description(e.target.value);
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await props.createNewNote(props.id, {
+      todo_list: props.newNoteDescription,
+    });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    props.createNewNote(props.id, props.newNote);
-    handle_change_note_description("");
-  };
+  console.log("props", props);
 
   return (
     <>
@@ -25,8 +24,8 @@ const NewNote = (props) => {
           label="todo_list"
           name="todo_list"
           type="text"
-          value={props.newNewnoteDescription}
-          onChange={handleChange}
+          value={props.newNoteDescription.todo_list}
+          onChange={(e) => props.handle_change_note_description(e.target.value)}
         />
         <button type="submit">Submit</button>
       </form>
@@ -35,7 +34,9 @@ const NewNote = (props) => {
 };
 
 const mapStateToProps = (state) => {
-  return { newNoteDescription: state.newNoteDescription };
+  return {
+    newNoteDescription: state.newNoteDescription,
+  };
 };
 
 export default connect(mapStateToProps, {

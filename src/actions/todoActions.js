@@ -84,7 +84,7 @@ export const createNewTask = (task) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: NEW_TASK_SUCCESS,
-        payload: { ...res.data, userId: localStorage.getItem("id") },
+        payload: { ...res.data },
       });
 
       console.log(res.data);
@@ -133,14 +133,11 @@ export const createNewNote = (id, notes) => (dispatch) => {
   axiosWithAuth()
     .post(`/todoList/${id}/title`, notes)
     .then((res) => {
-      const newNote = {
-        todo_list: res.data.todo_list,
-      };
       dispatch({
         type: NEW_NOTE_DESCRIPTION_SUCCESS,
-        payload: newNote,
+        payload: res.data,
       });
-      console.log(res.data);
+      console.log(res);
     })
     .catch((err) => {
       dispatch({
@@ -149,7 +146,6 @@ export const createNewNote = (id, notes) => (dispatch) => {
       });
     });
 };
-
 //RETIEVE THE NOTES FROM THE TASK
 export const getNotes = (id, notes) => (dispatch) => {
   dispatch({ type: FETCH_NOTES });
