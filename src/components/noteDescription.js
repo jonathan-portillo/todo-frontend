@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { createNewNote, getNotes } from "../actions/todoActions";
 import NewNote from "./newNote";
+import CurrentNote from "./currentNote";
 
 const NoteDescription = (props) => {
   const id = props.id;
@@ -15,11 +16,7 @@ const NoteDescription = (props) => {
 
   return (
     <>
-      {hasNotes ? (
-        <div>There are notes for this component</div>
-      ) : (
-        <NewNote id={id} />
-      )}
+      {hasNotes ? <CurrentNote notes={notes} id={id} /> : <NewNote id={id} />}
     </>
   );
 };
