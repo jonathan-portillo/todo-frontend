@@ -13,8 +13,6 @@ const NewNote = (props) => {
     });
   };
 
-  console.log("props", props);
-
   return (
     <>
       <p>Our Id in this component is {props.id}</p>
