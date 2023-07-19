@@ -6,15 +6,13 @@ import {
 } from "../actions/todoActions";
 
 const NewNote = (props) => {
-  const [noteDescription, setNoteDescription] = useState("");
-
   const handleChange = (e) => {
     handle_change_note_description(e.target.value);
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    props.createNewNote(props.id, props.newNewnoteDescription);
+    props.createNewNote(props.id, props.newNote);
     handle_change_note_description("");
   };
 

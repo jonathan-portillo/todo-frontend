@@ -7,6 +7,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- Went back to the drawing board, missed alot of things that was breaking the notes. Now I just need to make sure that I am properly submitting information to the API.
 - New issue on notes, might have to do a bit of refactoring
 - Resolved issue now only users notes are showing. Now need to allow for updating and deleting notes.
 - For some reason, When creating a Task the notes from prior users are showing, trying to debug to figure out why. Last issue to hurdle over and then design is going to be a main priority.
