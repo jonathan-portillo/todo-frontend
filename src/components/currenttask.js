@@ -14,7 +14,7 @@ const CurrentTasks = (props) => {
       <br />
       <div>
         {props.allTasks.map((task) => (
-          <div key={task.id}>
+          <div>
             <p>{task.todo_title}</p>
             <button
               onClick={(e) => {
@@ -24,7 +24,11 @@ const CurrentTasks = (props) => {
             >
               Delete
             </button>
-            <NoteDescription id={task.id} title={task.todo_title} />
+            <NoteDescription
+              key={task.id}
+              id={task.id}
+              title={task.todo_title}
+            />
           </div>
         ))}
       </div>
