@@ -146,6 +146,7 @@ export const createNewNote = (id, notes) => (dispatch) => {
       });
     });
 };
+
 //RETIEVE THE NOTES FROM THE TASK
 export const getNotes = (id, notes) => (dispatch) => {
   dispatch({ type: FETCH_NOTES });
