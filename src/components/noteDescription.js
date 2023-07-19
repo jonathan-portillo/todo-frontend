@@ -5,11 +5,21 @@ import NewNote from "./newNote";
 
 const NoteDescription = (props) => {
   const id = props.id;
+  const notes = props.allUserNotes;
+  const hasNotes = notes.some((note) => note.todo_title_id === id);
+
+  useEffect(() => {
+    props.getNotes(id);
+    console.log(props.allUserNotes);
+  }, [id, props.getNotes]);
 
   return (
     <>
-      <p>Our Title Id Below</p>
-      <NewNote id={id} />
+      {hasNotes ? (
+        <div>There are notes for this component</div>
+      ) : (
+        <NewNote id={id} />
+      )}
     </>
   );
 };
