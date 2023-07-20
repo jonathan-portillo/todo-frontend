@@ -20,6 +20,7 @@ const Nav = () => {
   };
   return (
     <header className="navbarhome">
+      <p className="tasknotesnav">Task Note</p>
       <Button onClick={home} variant="text" className="homelink" to="/">
         Home
       </Button>
