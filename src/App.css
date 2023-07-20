@@ -1,3 +1,72 @@
+/* CSS Reset */
+/* Box sizing to avoid layout inconsistencies */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Remove default margin and padding */
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ul,
+ol,
+li,
+blockquote,
+figure,
+dl,
+dd {
+  margin: 0;
+  padding: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+}
+
+/* Remove default anchor text decoration */
+a {
+  text-decoration: none;
+}
+
+/* Set a default font family and size */
+body {
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+}
+
+/* Reset form elements */
+input,
+button,
+textarea,
+select {
+  margin: 0;
+  padding: 0;
+  border: none;
+  background: none;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  appearance: none; /* Remove default styles in modern browsers */
+}
+
+/* Reset images */
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* css reset */
+
 /* * {
   border: 1px solid black;
 } */
@@ -7,22 +76,22 @@ a {
   border: black;
 }
 
-p {
-  margin: 0;
+body {
+  /* background-image: url("./assets/pexels-ekaterina-bolovtsova-6193091.jpg"); */
+  background-color: #f2ead3;
+  align-items: center;
 }
 
-body {
-  background-image: url("./assets/pexels-ekaterina-bolovtsova-6193091.jpg");
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-  background-position: center;
+.container {
+  background-color: #f2ead3;
+  margin: 1.5% 1.5% 0% 1.5%;
+  padding-bottom: 15%;
+  border-radius: 1%;
 }
 
 .App {
   text-align: center;
   text-decoration: none;
-  width: 100%;
 }
 
 /* Navbar  */
@@ -35,14 +104,26 @@ body {
 }
 
 .navbarhome {
-  font-size: 1.2rem;
-  font-weight: 500;
-  /* padding: 2% 15% 1% 3%; */
-  padding: 0.5% 5% 0 0;
+  width: 98%;
+  padding: 0.5% 8% 0 0;
   display: flex;
   justify-content: flex-end;
-  color: white;
-  background-color: rgba(255, 255, 255, 0.662);
+}
+
+.landing {
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.tasknotesnav {
+  color: black;
+  padding-right: 60%;
+  font-size: 5vh;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
 }
 
 .thatsthemotto {
@@ -53,6 +134,18 @@ body {
 .thatsthemotto2 {
   font-size: 2rem;
   padding: 0 0 2% 0;
+  overflow: hidden; /* Hide overflowing text */
+  white-space: nowrap; /* Prevent text from wrapping */
+  animation: typing 3s steps(40, end); /* Adjust the duration (3s) and steps to control speed */
+}
+
+@keyframes typing {
+  from {
+    width: 0; /* Start with 0 width, so the text appears to be typing */
+  }
+  to {
+    width: 100%; /* Full width to show the complete text */
+  }
 }
 
 .accountexists {
@@ -61,12 +154,14 @@ body {
 
 .homebox {
   display: flex;
-  padding: 0 0 0 0;
+  padding: 12% 0 0 0;
+  justify-content: center;
+  align-items: center;
 }
 
-.mottobox {
+/* .mottobox {
   padding: 15% 0% 0 15%;
-}
+} */
 
 /* login component */
 .loggingin {
@@ -136,4 +231,10 @@ body {
   margin-left: 5%;
   padding-top: 2%;
   padding-bottom: 2%;
+}
+
+/* footer */
+.icons {
+  display: flex;
+  padding-top: 13%;
 }
