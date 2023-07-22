@@ -6,7 +6,7 @@ Link to the website is here https://task-notes-omega.vercel.app/
 Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
-
+- Decided im going to stary stlying componenents I found alot of inspiriation from dribbble in the direction i want to go 
 - Alot to update, notes are properly displaying alongside adding conditional rendering, so that there is only one note added to each task while checking to see if there are any notes, if none then it will give the option to create a new note with the input. Was able to propely connect everything to the store, got alot of progress. I have a list of things I want to get done prior to styling. I need to create a way for users to update their notes while deleting them aswell as updating the titles. I also need to add a few more things like updating the state when logging in so that the user is routed to the dashboard. There may be a reason to just start styling now since updating really affect much other than adding an update pencil into the components.
 - Went back to the drawing board, missed alot of things that was breaking the notes. Now I just need to make sure that I am properly submitting information to the API.
 - New issue on notes, might have to do a bit of refactoring
