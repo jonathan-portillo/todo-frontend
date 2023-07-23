@@ -30,7 +30,7 @@ const Footer = () => {
           alt="linkedin-circled--v1"
         />
       </a>
-      <a href="mailto:jon.port93@gmail.com?subject=Inquiry%20about%20your%20services&body=Hello,">
+      <a href="mailto:jonport93@gmail.com">
         <img
           width="40"
           height="40"
