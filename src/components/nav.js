@@ -1,8 +1,10 @@
 import React from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
+import { connect } from "react-redux";
+import { logout } from "../actions/todoActions";
 
-const Nav = () => {
+const Nav = (props) => {
   const navigate = useNavigate();
   const home = (e) => {
     e.preventDefault();
@@ -12,10 +14,9 @@ const Nav = () => {
     e.preventDefault();
     navigate("/login");
   };
-  const logout = (e) => {
+  const handleLogout = (e) => {
     e.preventDefault();
-    localStorage.removeItem("token");
-    localStorage.removeItem("id");
+    props.logout();
     navigate("/");
   };
   return (
@@ -27,11 +28,17 @@ const Nav = () => {
       <Button onClick={login} to="/login" variant="text">
         Log In
       </Button>
-      <Button onClick={logout} variant="text" className="logoutlink">
+      <Button onClick={handleLogout} variant="text" className="logoutlink">
         Log Out
       </Button>
     </header>
   );
 };
 
-export default Nav;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.isLoggedIn,
+  };
+};
+
+export default connect(mapStateToProps, { logout })(Nav);
