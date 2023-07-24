@@ -13,6 +13,8 @@ export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
 
+export const LOG_OUT = "LOG_OUT";
+
 export const NEW_TASK = "NEW_TASK";
 export const NEW_TASK_SUCCESS = "NEW_TASK_SUCCESS";
 export const NEW_TASK_FAIL = "NEW_TASK_FAIL";
@@ -73,6 +75,13 @@ export const logUserIn = (cred) => (dispatch) => {
         payload: "Credentials are wrong or do not exist",
       });
     });
+};
+
+//LOGOUT
+export const logout = () => (dispatch) => {
+  dispatch({ type: LOG_OUT });
+  localStorage.removeItem("token");
+  localStorage.removeItem("id");
 };
 
 //Create a new task
