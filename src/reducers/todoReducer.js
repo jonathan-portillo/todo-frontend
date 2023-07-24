@@ -2,6 +2,9 @@ import {
   ADD_NEW_USER,
   HANDLE_CHANGE_SIGNUP,
   LOGIN,
+  LOGIN_SUCCESS,
+  LOGIN_FAIL,
+  LOG_OUT,
   HANDLE_CHANGE_LOGIN,
   NEW_TASK,
   HANDLE_CHANGE_NEW_TASK,
@@ -26,6 +29,7 @@ const initialState = {
     username: "",
     password: "",
   },
+  isLoggedIn: false,
   newTask: {
     todo_title: "",
   },
@@ -43,6 +47,18 @@ export const todoReducer = (state = initialState, action) => {
 
     case LOGIN:
       return state;
+    case LOGIN_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    case LOGIN_FAIL:
+      return {
+        ...state,
+        isLoggedIn: false,
+      };
+    case LOG_OUT:
+      return initialState;
 
     case NEW_TASK:
       return state;
