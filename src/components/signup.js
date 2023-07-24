@@ -11,7 +11,7 @@ const SignUp = (props) => {
   let navigate = useNavigate();
 
   const logIn = () => {
-    navigate("/tasknotes");
+    navigate("/login");
   };
   return (
     <>
@@ -57,11 +57,11 @@ const SignUp = (props) => {
             />
           </label>
           <br />
-          <Button className="thisbuttonhere" variant="contained" type="submit">
+          <Button variant="contained" type="submit">
             Sign up!
           </Button>
           <br />
-          <Link to="/">
+          <Link to="/login">
             <p className="linktologin">Already a user? Log in here!</p>
           </Link>
         </form>

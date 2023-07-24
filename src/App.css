@@ -148,10 +148,6 @@ body {
   }
 }
 
-.accountexists {
-  font-size: 0.9rem;
-}
-
 .homebox {
   display: flex;
   padding: 12% 0 0 0;
@@ -159,33 +155,25 @@ body {
   align-items: center;
 }
 
-/* .mottobox {
-  padding: 15% 0% 0 15%;
-} */
-
 /* login component */
 .loggingin {
+  width: 50%;
   display: flex;
   flex-direction: column;
-  align-content: center;
-  padding: 5% 0 0 0;
+  margin-left: 25%;
+  padding-top: 5%;
+  padding-bottom: 20%;
 }
 
 .loginbox {
-  width: 20%;
-  margin-left: 40%;
-  align-content: center;
+  width: 40%;
+  margin-left: 30%;
+  margin-top: 5%;
 }
 
-.loginlanding {
-  padding: 10% 0 0 5%;
+.logininfo {
+  padding-top: 10%;
 }
-
-.loginboxlanding {
-  width: 100%;
-  padding: 10% 30% 30% 30%;
-}
-
 .avatar {
   width: 100%;
   justify-content: center;
@@ -194,10 +182,9 @@ body {
   padding-bottom: 5%;
 }
 
-.linktosignup {
-  padding-top: 5%;
-  font-size: 0.8rem;
-}
+/* .linktosignup {
+  padding-top: 10%;
+} */
 
 /* Sign up page */
 
