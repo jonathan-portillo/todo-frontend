@@ -55,7 +55,7 @@ const Login = (props) => {
           </label>
           <br />
           <Button variant="contained" type="submit">
-            Log in
+            Sign in
           </Button>
           <br />
           <Link to="/signup">

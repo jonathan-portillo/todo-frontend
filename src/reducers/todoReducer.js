@@ -4,6 +4,7 @@ import {
   LOGIN,
   LOGIN_SUCCESS,
   LOGIN_FAIL,
+  SET_LOGGED_IN,
   LOG_OUT,
   HANDLE_CHANGE_LOGIN,
   NEW_TASK,
@@ -59,6 +60,12 @@ export const todoReducer = (state = initialState, action) => {
       };
     case LOG_OUT:
       return initialState;
+
+    case SET_LOGGED_IN:
+      return {
+        ...state,
+        isLoggedIn: action.payload,
+      };
 
     case NEW_TASK:
       return state;

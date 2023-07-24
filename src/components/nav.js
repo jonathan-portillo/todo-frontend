@@ -19,18 +19,30 @@ const Nav = (props) => {
     props.logout();
     navigate("/");
   };
+
+  const renderButton = () => {
+    if (props.isLoggedIn) {
+      return (
+        <Button onClick={handleLogout} variant="text" className="logoutlink">
+          Log Out
+        </Button>
+      );
+    } else {
+      return (
+        <Button onClick={login} to="/login" variant="text">
+          Sign In
+        </Button>
+      );
+    }
+  };
+
   return (
     <header className="navbarhome">
       <p className="tasknotesnav">Task Note</p>
       <Button onClick={home} variant="text" className="homelink" to="/">
         Home
       </Button>
-      <Button onClick={login} to="/login" variant="text">
-        Log In
-      </Button>
-      <Button onClick={handleLogout} variant="text" className="logoutlink">
-        Log Out
-      </Button>
+      {renderButton()}
     </header>
   );
 };

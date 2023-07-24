@@ -44,7 +44,7 @@ body {
 }
 
 /* Reset form elements */
-input,
+/* input,
 button,
 textarea,
 select {
@@ -55,8 +55,8 @@ select {
   font-family: inherit;
   font-size: inherit;
   color: inherit;
-  appearance: none; /* Remove default styles in modern browsers */
-}
+  appearance: none;
+} */
 
 /* Reset images */
 img {
@@ -104,7 +104,7 @@ body {
 }
 
 .navbarhome {
-  width: 98%;
+  width: 95%;
   padding: 0.5% 8% 0 0;
   display: flex;
   justify-content: flex-end;
@@ -120,7 +120,7 @@ body {
 
 .tasknotesnav {
   color: black;
-  padding-right: 60%;
+  padding-right: 65%;
   font-size: 5vh;
   padding-top: 1rem;
   padding-bottom: 1rem;

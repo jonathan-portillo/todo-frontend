@@ -9,6 +9,8 @@ export const HANDLE_CHANGE_LOGIN = "HANDLE_CHANGE_LOGIN";
 export const HANDLE_CHANGE_NEW_TASK = "HANDLE_CHANGE_NEW_TASK";
 export const HANDLE_CHANGE_NOTE_DESCRIPTION = "HANDLE_CHANGE_NOTE_DESCRIPTION";
 
+export const SET_LOGGED_IN = "SET_LOGGED_IN";
+
 export const LOGIN = "LOGIN";
 export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
 export const LOGIN_FAIL = "LOGIN_FAIL";
@@ -77,6 +79,15 @@ export const logUserIn = (cred) => (dispatch) => {
     });
 };
 
+//APP CHECKS IF LOGGED IN EVEN ON REFRESH
+
+export const setLoggedIn = (isLoggedIn) => {
+  return {
+    type: SET_LOGGED_IN,
+    payload: isLoggedIn,
+  };
+};
+
 //LOGOUT
 export const logout = () => (dispatch) => {
   dispatch({ type: LOG_OUT });
@@ -113,7 +124,7 @@ export const deleteTask = (titleId) => (dispatch) => {
   axiosWithAuth()
     .delete(`/title/${titleId}`)
     .then((res) => {
-      dispatch({ type: DELETE_TASK_SUCCESS, payload: res.data });
+      dispatch({ type: DELETE_TASK_SUCCESS, payload: { taskId: titleId } });
     })
     .catch((err) => {
       dispatch({ type: DELETE_TASK_FAIL, payload: err.response.data });
