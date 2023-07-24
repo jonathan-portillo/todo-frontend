@@ -1,5 +1,5 @@
 import React from "react";
-import ReactDOM from "react-dom";
+import { composeWithDevTools } from "redux-devtools-extension";
 import { createRoot } from "react-dom/client";
 import thunk from "redux-thunk";
 import { legacy_createStore as createStore } from "redux";
@@ -12,7 +12,10 @@ import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 
 const root = createRoot(document.getElementById("root"));
-const store = createStore(todoReducer, applyMiddleware(thunk));
+const store = createStore(
+  todoReducer,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 root.render(
   <Router>
