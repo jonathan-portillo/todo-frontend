@@ -8,9 +8,9 @@ const Nav = () => {
     e.preventDefault();
     navigate("/");
   };
-  const about = (e) => {
+  const login = (e) => {
     e.preventDefault();
-    navigate("/about");
+    navigate("/login");
   };
   const logout = (e) => {
     e.preventDefault();
@@ -24,8 +24,8 @@ const Nav = () => {
       <Button onClick={home} variant="text" className="homelink" to="/">
         Home
       </Button>
-      <Button onClick={about} to="/about" variant="text">
-        About
+      <Button onClick={login} to="/login" variant="text">
+        Log In
       </Button>
       <Button onClick={logout} variant="text" className="logoutlink">
         Log Out
