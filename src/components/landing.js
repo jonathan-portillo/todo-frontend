@@ -1,19 +1,22 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import Login from "./login";
 import { Button, Link } from "@mui/material";
-import Paper from "@mui/material/Paper";
-import LockedOutIcon from "@mui/icons-material/Assignment";
-import { Avatar } from "@mui/material";
+import { connect } from "react-redux";
 import Nav from "../components/nav";
 import Footer from "../components/footer";
 
-const Landing = () => {
+const Landing = (props) => {
   const navigate = useNavigate();
   const signup = (e) => {
     e.preventDefault();
     navigate("/signup");
   };
+
+  useEffect(() => {
+    if (props.isLoggedIn) {
+      navigate("/tasknotes");
+    }
+  }, [props.isLoggedIn, navigate]);
 
   return (
     <>
@@ -49,4 +52,10 @@ const Landing = () => {
   );
 };
 
-export default Landing;
+const mapStateToProps = (state) => {
+  return {
+    isLoggedIn: state.isLoggedIn,
+  };
+};
+
+export default connect(mapStateToProps)(Landing);
