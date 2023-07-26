@@ -10,9 +10,14 @@ import Nav from "../standardcomps/nav";
 const SignUp = (props) => {
   let navigate = useNavigate();
 
-  const logIn = () => {
-    navigate("/login");
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await props.createUser(props.signUpForm);
+    console.log(props.signUpForm);
+
+    navigate("/tasknotes");
   };
+
   return (
     <>
       <Nav />
@@ -21,14 +26,7 @@ const SignUp = (props) => {
           <p>Sign Up Here!!</p>
           <br />
         </header>
-        <form
-          className="signup"
-          onSubmit={async (e) => {
-            e.preventDefault();
-            await props.createUser(props.signUpForm);
-            console.log(props.signUpForm);
-          }}
-        >
+        <form className="signup" onSubmit={handleSubmit}>
           <label htmlFor="username">
             <Textfield
               className="textfield"
