@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { createUser, handle_change_signup } from "../actions/todoActions";
+import { createUser, handle_change_signup } from "../../actions/todoActions";
 import { connect } from "react-redux";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
-import Nav from "../components/nav";
+import Nav from "../standardcomps/nav";
 
 const SignUp = (props) => {
   let navigate = useNavigate();

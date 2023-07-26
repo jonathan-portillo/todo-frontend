@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import {
   handle_change_note_description,
   createNewNote,
-} from "../actions/todoActions";
+} from "../../actions/todoActions";
 
 const NewNote = (props) => {
   const handleSubmit = async (e) => {

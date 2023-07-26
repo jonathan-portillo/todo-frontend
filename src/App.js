@@ -3,11 +3,11 @@ import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import PrivateRoute from "./utils/privateroute";
 import LoggedIn from "./utils/isloggedin";
-import Landing from "./components/landing";
-import SignUp from "./components/signup";
-import About from "./components/about";
-import Task from "./components/task";
-import LoginPage from "./components/loginpage";
+import Landing from "./components/standardcomps/landing";
+import SignUp from "./components/auth/signup";
+import About from "./components/standardcomps/about";
+import Dashboard from "./components/dashboard/dashboard";
+import LoginPage from "./components/auth/loginpage";
 
 function App() {
   return (
@@ -18,7 +18,7 @@ function App() {
           path="/tasknotes"
           element={
             <PrivateRoute>
-              <Task />
+              <Dashboard />
             </PrivateRoute>
           }
         />

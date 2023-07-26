@@ -1,6 +1,9 @@
 import React from "react";
 import { connect } from "react-redux";
-import { createNewTask, handle_change_newtask } from "../actions/todoActions";
+import {
+  createNewTask,
+  handle_change_newtask,
+} from "../../actions/todoActions";
 
 const NewTask = (props) => {
   const handleSubmit = async (e) => {

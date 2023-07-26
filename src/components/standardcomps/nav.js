@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { connect } from "react-redux";
-import { logout } from "../actions/todoActions";
+import { logout } from "../../actions/todoActions";
 
 const Nav = (props) => {
   const navigate = useNavigate();

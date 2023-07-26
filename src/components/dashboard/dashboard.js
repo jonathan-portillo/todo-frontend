@@ -1,12 +1,15 @@
 import React from "react";
-import Nav from "../components/nav";
-import NewTask from "./newtask";
-import CurrentTasks from "./currenttask";
+import Nav from "../standardcomps/nav";
+import NewTask from "../task/newtask";
+import CurrentTasks from "../task/currenttask";
 import { connect } from "react-redux";
-import { createNewTask, handle_change_newtask } from "../actions/todoActions";
-import SideNav from "./sidenav";
+import {
+  createNewTask,
+  handle_change_newtask,
+} from "../../actions/todoActions";
+import SideNav from "../dashboard/sidenav";
 
-const Task = () => {
+const Dashboard = () => {
   return (
     <>
       <Nav />
@@ -30,4 +33,4 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   createNewTask,
   handle_change_newtask,
-})(Task);
+})(Dashboard);

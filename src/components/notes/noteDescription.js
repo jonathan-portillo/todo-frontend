@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { createNewNote, getNotes } from "../actions/todoActions";
+import { createNewNote, getNotes } from "../../actions/todoActions";
 import NewNote from "./newNote";
 import CurrentNote from "./currentNote";
 

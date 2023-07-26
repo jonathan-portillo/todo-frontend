@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import { getTasks, deleteTask } from "../actions/todoActions";
+import { getTasks, deleteTask } from "../../actions/todoActions";
 import { connect } from "react-redux";
-import NoteDescription from "./noteDescription";
+import NoteDescription from "../notes/noteDescription";
 
 const CurrentTasks = (props) => {
   useEffect(() => {

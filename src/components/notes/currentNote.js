@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
-import { getNotes } from "../actions/todoActions";
+import { getNotes } from "../../actions/todoActions";
 
 const CurrentNote = (props) => {
   const { id, allUserNotes, getNotes } = props;
