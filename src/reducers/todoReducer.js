@@ -67,9 +67,14 @@ export const todoReducer = (state = initialState, action) => {
         isLoggedIn: action.payload,
       };
 
-    case NEW_TASK:
-      return state;
-
+    case NEW_TASK: {
+      return {
+        ...state,
+        newTask: {
+          todo_title: "",
+        },
+      };
+    }
     case NEW_TASK_SUCCESS:
       return {
         ...state,
@@ -106,11 +111,14 @@ export const todoReducer = (state = initialState, action) => {
       return state;
 
     case FETCH_NOTES_SUCCESS:
+      const newNotes = action.payload.filter(
+        (newNote) => !state.allUserNotes.some((note) => note.id === newNote.id)
+      );
+
       return {
         ...state,
-        allUserNotes: action.payload,
+        allUserNotes: [...state.allUserNotes, ...newNotes],
       };
-
     case DELETE_TASK_SUCCESS:
       const deletedTaskId = action.payload.taskId;
       return {
