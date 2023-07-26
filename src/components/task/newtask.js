@@ -10,12 +10,13 @@ const NewTask = (props) => {
     e.preventDefault();
 
     await props.createNewTask(props.newTask);
+    props.handleClose();
   };
   return (
     <>
       <form onSubmit={handleSubmit}>
         <label htmlFor="todo_title">
-          Todo Title
+          Task
           <input
             id="todo_title"
             label="todo_title"
