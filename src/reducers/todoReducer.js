@@ -1,5 +1,7 @@
 import {
   ADD_NEW_USER,
+  ADD_NEW_USER_SUCCESS,
+  ADD_NEW_USER_FAIL,
   HANDLE_CHANGE_SIGNUP,
   LOGIN,
   LOGIN_SUCCESS,
@@ -45,6 +47,16 @@ export const todoReducer = (state = initialState, action) => {
   switch (action.type) {
     case ADD_NEW_USER:
       return state;
+    case ADD_NEW_USER_SUCCESS:
+      return {
+        ...state,
+        isLoggedIn: true,
+      };
+    case ADD_NEW_USER_FAIL:
+      return {
+        ...state,
+        isLoggedIn: false,
+      };
 
     case LOGIN:
       return state;
