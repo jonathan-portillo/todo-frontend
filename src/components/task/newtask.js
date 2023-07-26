@@ -4,6 +4,8 @@ import {
   createNewTask,
   handle_change_newtask,
 } from "../../actions/todoActions";
+import { TextField } from "@mui/material/";
+import { Button } from "@mui/material";
 
 const NewTask = (props) => {
   const handleSubmit = async (e) => {
@@ -15,18 +17,23 @@ const NewTask = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <label htmlFor="todo_title">
-          Task
-          <input
+        <div className="inputtitle">
+          <TextField
             id="todo_title"
-            label="todo_title"
+            variant="standard"
+            label="Create a task"
             name="todo_title"
+            fullWidth
             type="text"
             value={props.newTask.todo_title}
             onChange={props.handle_change_newtask}
-          />
-        </label>
-        <button type="submit">Submit</button>
+          ></TextField>
+          <div className="modalbutton">
+            <Button className="move" type="submit">
+              Enter
+            </Button>
+          </div>
+        </div>
       </form>
     </>
   );

@@ -80,6 +80,8 @@ body {
   /* background-image: url("./assets/pexels-ekaterina-bolovtsova-6193091.jpg"); */
   background-color: #f2ead3;
   align-items: center;
+  background-position: center;
+  background-size: auto;
 }
 
 .container {
@@ -134,17 +136,17 @@ body {
 .thatsthemotto2 {
   font-size: 2rem;
   padding: 0 0 2% 0;
-  overflow: hidden; /* Hide overflowing text */
-  white-space: nowrap; /* Prevent text from wrapping */
-  animation: typing 3s steps(40, end); /* Adjust the duration (3s) and steps to control speed */
+  overflow: hidden;
+  white-space: nowrap;
+  animation: typing 3s steps(40, end);
 }
 
 @keyframes typing {
   from {
-    width: 0; /* Start with 0 width, so the text appears to be typing */
+    width: 0;
   }
   to {
-    width: 100%; /* Full width to show the complete text */
+    width: 100%;
   }
 }
 
@@ -225,6 +227,19 @@ body {
   margin-left: 5%;
   display: flex;
   flex-direction: row;
+}
+
+/* modal */
+.inputtitle {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.modalbutton {
+  padding-top: 0.05rem;
+  margin-left: 80%;
 }
 
 /* side nav component */
