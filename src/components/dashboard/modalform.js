@@ -36,9 +36,8 @@ const ModalForm = () => {
   return (
     <div>
       <ThemeProvider theme={theme}>
-        <IconButton color="primary">
+        <IconButton color="primary" onClick={handleOpen}>
           <AddCircleIcon
-            onClick={handleOpen}
             style={{ fontSize: 50 }}
             aria-label="create a new task"
           />
