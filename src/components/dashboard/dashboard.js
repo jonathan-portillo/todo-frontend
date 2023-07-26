@@ -7,6 +7,7 @@ import {
   handle_change_newtask,
 } from "../../actions/todoActions";
 import SideNav from "../dashboard/sidenav";
+import Footer from "../standardcomps/footer";
 
 const Dashboard = () => {
   return (
@@ -14,9 +15,12 @@ const Dashboard = () => {
       <Nav />
       <div className="dashbox">
         <SideNav />
-        <div className="notebox">
+        <div className="currtasks">
           <CurrentTasks />
         </div>
+      </div>
+      <div className="dashfoot">
+        <Footer />
       </div>
     </>
   );

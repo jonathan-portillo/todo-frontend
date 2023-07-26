@@ -17,11 +17,8 @@ const CurrentNote = (props) => {
 
   return (
     <div>
-      <p key={id}>Component id {id}</p>
       {filteredNotes.map((note) => (
-        <p>
-          {note.todo_list} {note.todo_title_id}
-        </p>
+        <p>{note.todo_list}</p>
       ))}
     </div>
   );

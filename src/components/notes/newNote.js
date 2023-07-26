@@ -15,7 +15,6 @@ const NewNote = (props) => {
 
   return (
     <>
-      <p>Our Id in this component is {props.id}</p>
       <form onSubmit={handleSubmit}>
         <input
           id="todo_list"

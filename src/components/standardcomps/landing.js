@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { Button, Link } from "@mui/material";
+import { Button } from "@mui/material";
 import { connect } from "react-redux";
 import Nav from "./nav";
 import Footer from "./footer";
@@ -31,7 +31,9 @@ const Landing = (props) => {
             </Button>
           </div>
         </div>
-        <Footer />
+        <div className="landingfoot">
+          <Footer />
+        </div>
       </div>
     </>
   );
