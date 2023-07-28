@@ -4,6 +4,7 @@ import {
   handle_change_note_description,
   createNewNote,
 } from "../../actions/todoActions";
+import { TextField } from "@mui/material";
 
 const NewNote = (props) => {
   const handleSubmit = async (e) => {
@@ -16,11 +17,13 @@ const NewNote = (props) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
-          id="todo_list"
-          label="todo_list"
+        <TextField
+          id="outlined-multiline-flexible"
           name="todo_list"
           type="text"
+          multiline
+          rows={3}
+          defaultValue="Default Value"
           value={props.newNoteDescription.todo_list}
           onChange={(e) => props.handle_change_note_description(e.target.value)}
         />

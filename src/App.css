@@ -239,10 +239,10 @@ body {
 }
 
 .currtasks {
+  width: 100%;
   margin-left: 5%;
   display: flex;
-  flex-wrap: wrap;
-  flex-direction: row-reverse;
+  flex-direction: row;
 }
 
 /* modal */
