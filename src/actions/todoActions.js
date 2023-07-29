@@ -37,6 +37,10 @@ export const FETCH_NOTES = "FETCH_NOTES";
 export const FETCH_NOTES_SUCCESS = "FETCH_NOTES_SUCCESS";
 export const FETCH_NOTES_FAIL = "FETCH_NOTES_FAIL";
 
+export const UPDATE_TASK = "UPDATE_TASK";
+export const UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS";
+export const UPDATE_TASK_FAIL = "UPDATE_TASK_FAIL";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -113,6 +117,27 @@ export const createNewTask = (task) => (dispatch) => {
       dispatch({
         type: NEW_TASK_FAIL,
         payload: "Not sending title please help please",
+      });
+    });
+};
+
+//UPDATE TASK TITLE w/ TASK TITLE ID
+
+export const updateTask = (id, task) => (dispatch) => {
+  dispatch({ type: UPDATE_TASK });
+  axiosWithAuth()
+    .put(`/title/${id}`, task)
+    .then((res) => {
+      dispatch({
+        type: UPDATE_TASK_SUCCESS,
+        payload: res.data,
+      });
+      console.log("Title has been updated", res.data);
+    })
+    .catch((err) => {
+      dispatch({
+        type: UPDATE_TASK_FAIL,
+        payload: "Well you're stuck with the title you made, try again",
       });
     });
 };
