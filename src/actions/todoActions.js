@@ -41,6 +41,10 @@ export const UPDATE_TASK = "UPDATE_TASK";
 export const UPDATE_TASK_SUCCESS = "UPDATE_TASK_SUCCESS";
 export const UPDATE_TASK_FAIL = "UPDATE_TASK_FAIL";
 
+export const UPDATE_NOTE = "UPDATE_NOTE";
+export const UPDATE_NOTE_SUCCESS = "UPDATE_NOTE_SUCCESS";
+export const UPDATE_NOTE_FAIL = "UPDATE_NOTE_FAUL";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -188,6 +192,28 @@ export const createNewNote = (id, notes) => (dispatch) => {
       dispatch({
         type: NEW_NOTE_DESCRIPTION_FAIL,
         payload: "Couldnt create the note try again",
+      });
+    });
+};
+
+//UPDATE NOTE USING NOTE_ID
+
+export const updateNotes = (id, notes) => (dispatch) => {
+  dispatch({ type: UPDATE_NOTE });
+  axiosWithAuth()
+    .put(`/todoList/${id}`, notes)
+    .then((res) => {
+      dispatch({
+        type: UPDATE_NOTE_SUCCESS,
+        payload: res.date,
+      });
+      console.log(res);
+    })
+    .catch((err) => {
+      dispatch({
+        type: UPDATE_NOTE_FAIL,
+        payload:
+          "Couldn't update note, you did something wronge, get it together",
       });
     });
 };
