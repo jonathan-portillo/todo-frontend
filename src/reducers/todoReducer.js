@@ -21,6 +21,12 @@ import {
   NEW_NOTE_DESCRIPTION_SUCCESS,
   FETCH_NOTES,
   FETCH_NOTES_SUCCESS,
+  UPDATE_NOTE,
+  UPDATE_NOTE_SUCCESS,
+  UPDATE_NOTE_FAIL,
+  UPDATE_TASK,
+  UPDATE_TASK_SUCCESS,
+  UPDATE_TASK_FAIL,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -72,7 +78,6 @@ export const todoReducer = (state = initialState, action) => {
       };
     case LOG_OUT:
       return initialState;
-
     case SET_LOGGED_IN:
       return {
         ...state,
@@ -169,6 +174,30 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         newNoteDescription: action.payload,
+      };
+    case UPDATE_NOTE:
+      return {
+        state,
+      };
+    case UPDATE_NOTE_SUCCESS:
+      return {
+        state,
+      };
+    case UPDATE_NOTE_FAIL:
+      return {
+        state,
+      };
+    case UPDATE_TASK:
+      return {
+        state,
+      };
+    case UPDATE_TASK_SUCCESS:
+      return {
+        state,
+      };
+    case UPDATE_TASK_FAIL:
+      return {
+        state,
       };
 
     default:
