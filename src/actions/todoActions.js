@@ -205,7 +205,7 @@ export const updateNotes = (id, notes) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
-        payload: res.date,
+        payload: res.DELETE_TASK_FAIL,
       });
       console.log(res);
     })
