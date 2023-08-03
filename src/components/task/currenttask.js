@@ -1,7 +1,8 @@
-import React, { useEffect } from "react";
-import { getTasks, deleteTask } from "../../actions/todoActions";
+import React, { useEffect, useState } from "react";
+import { getTasks, deleteTask, updateTask } from "../../actions/todoActions";
 import { connect } from "react-redux";
 import NoteDescription from "../notes/noteDescription";
+import TaskTitle from "./tasktitle";
 import { Paper } from "@mui/material";
 
 const CurrentTasks = (props) => {
@@ -13,18 +14,8 @@ const CurrentTasks = (props) => {
     <>
       <div className="currtasks">
         {props.allTasks.map((task) => (
-          <Paper className="taskbox">
-            <p className="tasktitle">{task.todo_title}</p>
-            <div>
-              <button
-                onClick={(e) => {
-                  e.preventDefault();
-                  props.deleteTask(task.id);
-                }}
-              >
-                Delete
-              </button>
-            </div>
+          <Paper className="taskbox" key={task.id}>
+            <TaskTitle task={task} id={task.id} />
             <NoteDescription
               key={task.id}
               id={task.id}
@@ -45,4 +36,5 @@ const mapStateToProps = (state) => {
 export default connect(mapStateToProps, {
   getTasks,
   deleteTask,
+  updateTask,
 })(CurrentTasks);
