@@ -11,7 +11,7 @@ const CurrentTasks = (props) => {
 
   return (
     <>
-      <div>
+      <div className="currtasks">
         {props.allTasks.map((task) => (
           <Paper className="taskbox">
             <p className="tasktitle">{task.todo_title}</p>

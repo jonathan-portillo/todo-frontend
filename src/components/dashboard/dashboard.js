@@ -15,9 +15,7 @@ const Dashboard = () => {
       <Nav />
       <div className="dashbox">
         <SideNav />
-        <div className="currtasks">
-          <CurrentTasks />
-        </div>
+        <CurrentTasks />
       </div>
       <div className="dashfoot">
         <Footer />
