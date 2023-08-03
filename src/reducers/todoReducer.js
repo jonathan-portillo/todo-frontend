@@ -192,18 +192,12 @@ export const todoReducer = (state = initialState, action) => {
         state,
       };
     case UPDATE_TASK_SUCCESS:
-      const updatedTaskId = action.payload.id;
-      const updatedTitle = action.payload.todo_title;
-
-      const updatedNotes = state.allUserNotes.map((note) =>
-        note.todo_title_id === updatedTaskId
-          ? { ...note, todo_title: updatedTitle }
-          : note
-      );
-
+      const { id, updatedTask } = action.payload;
       return {
         ...state,
-        allUserNotes: updatedNotes,
+        allTasks: state.allTasks.map((task) =>
+          task.id === id ? { ...task, todo_title: updatedTask } : task
+        ),
       };
     case UPDATE_TASK_FAIL:
       return {
