@@ -240,7 +240,7 @@ body {
 
 .currtasks {
   width: 100%;
-  margin-left: 5%;
+  margin-left: 1%;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
@@ -275,16 +275,49 @@ body {
 /* task components */
 
 .taskbox {
-  margin: 5% 0 0 0;
-  width: 20vw;
+  margin: 0.5% 1% 0 1%;
+  width: 18vw;
   height: 25vh;
   display: flex;
   flex-direction: column;
   /* border: 1px solid black; */
 }
 
+.tasktitlebox {
+  margin: 5% 5% 0 5%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
 .tasktitle {
-  margin-top: 5%;
+  width: 70%;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.toggle {
+  display: none;
+}
+
+/* Styles for the expanded task titles */
+.toggle:checked + .tasktitlebox .tasktitle {
+  white-space: normal;
+  overflow: visible;
+  text-overflow: unset;
+}
+
+/* Optional transition for smooth animation */
+.tasktitle {
+  transition: all 0.3s ease;
+}
+
+.buttonsss {
+  display: flex;
+  flex-direction: row;
 }
 
 /* * {
