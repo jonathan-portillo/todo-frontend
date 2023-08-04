@@ -5,6 +5,16 @@ https://github.com/jonathan-portillo/todo-backend-/tree/main
 Link to the website is here https://task-notes-omega.vercel.app/
 Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
+## HOW TO DEPLOY ON YOUR OWN LOCAL MACHINE
+
+1. Clone repository
+2. Run `npm i` to update and packages that need updating.
+3. In your terminal run npm start, this will open up `localhost:3000`
+4. You need to also clone the backend `https://github.com/jonathan-portillo/todo-backend-/tree/main`
+5. Repeat step 2 in the backend folder.
+6. Run `npm run server` this well get the backend running for your application.
+7. Have fun!
+
 ## Status
 
 - Forgot to mention next step is to update the notes of the task. Hopefully it isnt as tedius as it was to update the title. I have a bit of perspective this time around.
