@@ -7,8 +7,9 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
--Updating tasks work, now updating notes 
-- Started on working on updating tasks and notes 
+- I can offically update titles. It looks a bit sloppy but it works for just need to do some clean up on styling. While I was at it I fixed the flex box issue with the note boxes only going straight down the page and not wrapping. That's was a simple fix, looking away at the code and coming back is what really helped out there.
+- Updating tasks work, now updating notes
+- Started on working on updating tasks and notes
 - Found a bug when it came to displaying notes, which was fixed through the reducer. I added a Modal whenever you click a create new button it prompts a form. Did a ton of clean up and file scaffolding it was a bit of a mess tbh. Working on styling the dashboar, the boxes for the notes have been created. Need to find a way to properly display the tasks, pagnation? Scrolling box? There are a few ways I can approach this. Also I have to be more careful making my commits, did git add . without realize on my last commit. Luckily they were all revolved around styling so not too bad.
 - Fixed login rerendering and did a bit of refactoring, accidentally made on big commit without updating each commit message. In short I now have the store to check login creds so if page gets reset and resets state the app will know if the user is logged in or not helping with conditional rendering. Log out is now in the initial state, and a few changes with conditional rendering in the nav.
 - Decided im going to stary stlying componenents I found alot of inspiriation from dribbble in the direction i want to go
