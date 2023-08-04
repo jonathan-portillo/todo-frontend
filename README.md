@@ -7,7 +7,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## HOW TO DEPLOY ON YOUR OWN LOCAL MACHINE
 
-1. Clone repository
+1. Clone repository. Run `git clone https://github.com/jonathan-portillo/todo-frontend-.git`
 2. Run `npm i` to update and packages that need updating.
 3. In your terminal run npm start, this will open up `localhost:3000`
 4. You need to also clone the backend `https://github.com/jonathan-portillo/todo-backend-/tree/main`
