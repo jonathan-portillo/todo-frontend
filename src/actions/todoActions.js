@@ -45,6 +45,9 @@ export const UPDATE_NOTE = "UPDATE_NOTE";
 export const UPDATE_NOTE_SUCCESS = "UPDATE_NOTE_SUCCESS";
 export const UPDATE_NOTE_FAIL = "UPDATE_NOTE_FAUL";
 
+export const SET_EDIT = "SET_EDIT";
+export const SET_EDITED_TITLE = "SET_EDITED_TITLE";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -134,7 +137,7 @@ export const updateTask = (id, task) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: UPDATE_TASK_SUCCESS,
-        payload: res.data,
+        payload: { id, updatedTask: task.todo_title }, // Send the updated task title
       });
       console.log("Title has been updated", res.data);
     })
@@ -232,6 +235,22 @@ export const getNotes = (id, notes) => (dispatch) => {
         payload: "OOOOOOOOOOOFFFF",
       });
     });
+};
+
+//TO SHOW THAT OUR COMPONENT IS BEING EDITED,
+export const setEditing = (taskId, isEditing) => {
+  return {
+    type: SET_EDIT,
+    payload: { taskId, isEditing },
+  };
+};
+
+//TO EDIT OUR TITLE
+export const editTitle = (title) => {
+  return {
+    type: SET_EDITED_TITLE,
+    payload: title,
+  };
 };
 
 export const handle_change_login = (e) => (dispatch) => {
