@@ -27,6 +27,8 @@ import {
   UPDATE_TASK,
   UPDATE_TASK_SUCCESS,
   UPDATE_TASK_FAIL,
+  SET_EDIT,
+  SET_EDITED_TITLE,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -47,6 +49,8 @@ const initialState = {
     todo_list: "",
   },
   allUserNotes: [],
+  editedTitle: "",
+  isEditing: false,
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -93,9 +97,10 @@ export const todoReducer = (state = initialState, action) => {
       };
     }
     case NEW_TASK_SUCCESS:
+      const newTask = { ...action.payload, isEditing: false };
       return {
         ...state,
-        allTasks: [...state.allTasks, action.payload],
+        allTasks: [...state.allTasks, newTask],
       };
 
     case FETCH_TASKS:
@@ -105,6 +110,21 @@ export const todoReducer = (state = initialState, action) => {
       return {
         ...state,
         allTasks: action.payload,
+      };
+
+    case SET_EDIT:
+      const { taskId, isEditing } = action.payload;
+      return {
+        ...state,
+        isEditing: {
+          ...state.isEditing,
+          [taskId]: isEditing,
+        },
+      };
+    case SET_EDITED_TITLE:
+      return {
+        ...state,
+        editedTitle: action.payload,
       };
 
     case DELETE_TASK:
@@ -188,9 +208,7 @@ export const todoReducer = (state = initialState, action) => {
         state,
       };
     case UPDATE_TASK:
-      return {
-        state,
-      };
+      return state;
     case UPDATE_TASK_SUCCESS:
       const { id, updatedTask } = action.payload;
       return {
@@ -199,6 +217,7 @@ export const todoReducer = (state = initialState, action) => {
           task.id === id ? { ...task, todo_title: updatedTask } : task
         ),
       };
+
     case UPDATE_TASK_FAIL:
       return {
         state,
