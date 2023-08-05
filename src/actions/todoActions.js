@@ -48,6 +48,9 @@ export const UPDATE_NOTE_FAIL = "UPDATE_NOTE_FAUL";
 export const SET_EDIT = "SET_EDIT";
 export const SET_EDITED_TITLE = "SET_EDITED_TITLE";
 
+export const SET_EDIT_NOTE = "SET_EDIT_NOTE";
+export const SET_EDITED_NOTE = "SET_EDITED_NOTE";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -208,15 +211,15 @@ export const updateNotes = (id, notes) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
-        payload: res.DELETE_TASK_FAIL,
+        payload: { id, updatedNote: notes.todo_list },
       });
-      console.log(res);
+      console.log("Note has been updated", res.data);
     })
     .catch((err) => {
       dispatch({
         type: UPDATE_NOTE_FAIL,
         payload:
-          "Couldn't update note, you did something wronge, get it together",
+          "Couldn't update note, you did something wrong, get it together",
       });
     });
 };
@@ -250,6 +253,28 @@ export const editTitle = (title) => {
   return {
     type: SET_EDITED_TITLE,
     payload: title,
+  };
+};
+
+//TO SHOW THAT OUR COMPONENT IS BEING EDITED
+export const setEditingNote = (noteId, isEditingNote) => {
+  return {
+    type: SET_EDIT_NOTE,
+    payload: { noteId, isEditingNote },
+  };
+};
+
+export const editNote = (note) => {
+  return {
+    type: SET_EDITED_NOTE,
+    payload: note,
+  };
+};
+
+export const editNoteDescription = (editedNote) => {
+  return {
+    type: HANDLE_CHANGE_NOTE_DESCRIPTION,
+    payload: editedNote,
   };
 };
 

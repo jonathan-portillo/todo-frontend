@@ -29,6 +29,8 @@ import {
   UPDATE_TASK_FAIL,
   SET_EDIT,
   SET_EDITED_TITLE,
+  SET_EDIT_NOTE,
+  SET_EDITED_NOTE,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -50,7 +52,9 @@ const initialState = {
   },
   allUserNotes: [],
   editedTitle: "",
-  isEditing: false,
+  editedNote: "",
+  isEditing: false, //title
+  isEditingNote: false, //note
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -126,6 +130,20 @@ export const todoReducer = (state = initialState, action) => {
         ...state,
         editedTitle: action.payload,
       };
+    case SET_EDIT_NOTE:
+      const { notesId, isEditingNote } = action.payload;
+      return {
+        ...state,
+        isEditingNote: {
+          ...state.isEditingNote,
+          [notesId]: isEditingNote,
+        },
+      };
+    case SET_EDITED_NOTE:
+      return {
+        ...state,
+        editNote: action.payload,
+      };
 
     case DELETE_TASK:
       return state;
@@ -196,12 +214,14 @@ export const todoReducer = (state = initialState, action) => {
         newNoteDescription: action.payload,
       };
     case UPDATE_NOTE:
-      return {
-        state,
-      };
+      return state;
     case UPDATE_NOTE_SUCCESS:
+      const { noteId, updatedNote } = action.payload;
       return {
-        state,
+        ...state,
+        allUserNotes: state.allUserNotes.map((note) =>
+          note.id === noteId ? { ...note, todo_list: updatedNote } : note
+        ),
       };
     case UPDATE_NOTE_FAIL:
       return {
