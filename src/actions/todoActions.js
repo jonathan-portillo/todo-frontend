@@ -257,17 +257,17 @@ export const editTitle = (title) => {
 };
 
 //TO SHOW THAT OUR COMPONENT IS BEING EDITED
-export const setEditingNote = (noteId, isEditingNote) => {
+export const setEditingNote = (notesId, isEditingNote) => {
   return {
     type: SET_EDIT_NOTE,
-    payload: { noteId, isEditingNote },
+    payload: { notesId, isEditingNote },
   };
 };
 
-export const editNote = (note) => {
+export const editNote = (noteId, note) => {
   return {
     type: SET_EDITED_NOTE,
-    payload: note,
+    payload: { noteId, note },
   };
 };
 

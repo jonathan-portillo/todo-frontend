@@ -52,9 +52,10 @@ const initialState = {
   },
   allUserNotes: [],
   editedTitle: "",
-  editedNote: "",
+  editedNotes: {},
   isEditing: false, //title
   isEditingNote: false, //note
+  noteEditingState: {}, // Object to track editing state per note
 };
 
 export const todoReducer = (state = initialState, action) => {
@@ -134,17 +135,21 @@ export const todoReducer = (state = initialState, action) => {
       const { notesId, isEditingNote } = action.payload;
       return {
         ...state,
-        isEditingNote: {
-          ...state.isEditingNote,
+        noteEditingState: {
+          ...state.noteEditingState,
           [notesId]: isEditingNote,
         },
       };
+
     case SET_EDITED_NOTE:
+      const { setNoteId, note } = action.payload;
       return {
         ...state,
-        editNote: action.payload,
+        editedNotes: {
+          ...state.editedNotes,
+          [setNoteId]: note,
+        },
       };
-
     case DELETE_TASK:
       return state;
 

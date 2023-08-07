@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import {
   getNotes,
   updateNotes,
-  editNoteDescription,
   setEditingNote,
   editNote,
 } from "../../actions/todoActions";
@@ -14,10 +13,8 @@ const CurrentNote = (props) => {
     allUserNotes,
     getNotes,
     updateNotes,
-    editNoteDescription,
-    isEditingNote,
     setEditingNote,
-    editedNote,
+    editedNotes,
     editNote,
   } = props;
 
@@ -29,37 +26,42 @@ const CurrentNote = (props) => {
     (note) => note.todo_title_id === props.id
   );
 
-  const handleEditClick = () => {
-    editNote(filteredNotes[0]?.todo_list); // Set the initial value of editedNote
-    setEditingNote(id, true);
+  const handleEditClick = (noteId, noteContent) => {
+    // Set the initial value of editedNote
+    editNote({ setNoteId: noteId, note: noteContent });
+    setEditingNote(noteId, true);
   };
 
-  const handleSaveClick = () => {
-    updateNotes(filteredNotes[0]?.id, { todo_list: editedNote });
-    setEditingNote(id, false);
+  const handleSaveClick = (noteId) => {
+    const updatedNote = editedNotes[noteId] || filteredNotes[0]?.todo_list;
+    updateNotes(noteId, { todo_list: updatedNote });
+    setEditingNote(noteId, false);
   };
 
-  const handleInputChange = (e) => {
-    editNote(e.target.value); // Update the local state of editedNote
+  const handleInputChange = (e, noteId) => {
+    const updatedNote = e.target.value;
+    editNote({ id: noteId, content: updatedNote }); // Update the local state of editedNote
   };
 
   return (
     <div>
       {filteredNotes.map((note) => (
         <React.Fragment key={note.id}>
-          {isEditingNote ? (
+          {props.noteEditingState[note.id] ? (
             <>
               <input
                 type="text"
-                value={editedNote}
-                onChange={handleInputChange}
+                value={editedNotes[note.id] || note.todo_list}
+                onChange={(e) => handleInputChange(e, note.id)}
               />
-              <button onClick={handleSaveClick}>Save</button>
+              <button onClick={() => handleSaveClick(note.id)}>Save</button>
             </>
           ) : (
             <>
               <p>{note.todo_list}</p>
-              <button onClick={handleEditClick}>Edit</button>
+              <button onClick={() => handleEditClick(note.id, note.todo_list)}>
+                Edit
+              </button>
             </>
           )}
         </React.Fragment>
@@ -71,8 +73,8 @@ const CurrentNote = (props) => {
 const mapStateToProps = (state) => {
   return {
     allUserNotes: state.allUserNotes,
-    editedNote: state.editNote, // Update to use 'editNote' instead of 'editedNote'
-    isEditingNote: state.isEditingNote,
+    editedNotes: state.editedNotes, // Use 'editedNotes' instead of 'editNote'
+    noteEditingState: state.noteEditingState,
   };
 };
 
