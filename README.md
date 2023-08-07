@@ -17,6 +17,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- Accidentally pushed commit with bugs. currently working on fixing bugs
 - Forgot to mention next step is to update the notes of the task. Hopefully it isnt as tedius as it was to update the title. I have a bit of perspective this time around.
 - I can offically update titles. It looks a bit sloppy but it works for just need to do some clean up on styling. While I was at it I fixed the flex box issue with the note boxes only going straight down the page and not wrapping. That's was a simple fix, looking away at the code and coming back is what really helped out there.
 - Updating tasks work, now updating notes
