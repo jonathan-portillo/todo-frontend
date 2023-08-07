@@ -264,10 +264,10 @@ export const setEditingNote = (notesId, isEditingNote) => {
   };
 };
 
-export const editNote = (noteId, note) => {
+export const editNote = ({ setNoteId, note }) => {
   return {
     type: SET_EDITED_NOTE,
-    payload: { noteId, note },
+    payload: { setNoteId, note }, // Use setNoteId instead of id
   };
 };
 

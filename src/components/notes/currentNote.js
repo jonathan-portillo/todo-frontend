@@ -40,7 +40,7 @@ const CurrentNote = (props) => {
 
   const handleInputChange = (e, noteId) => {
     const updatedNote = e.target.value;
-    editNote({ id: noteId, content: updatedNote }); // Update the local state of editedNote
+    editNote({ setNoteId: noteId, note: updatedNote }); // Update the local state of editedNote
   };
 
   return (
