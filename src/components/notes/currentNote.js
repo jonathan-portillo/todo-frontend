@@ -73,7 +73,7 @@ const CurrentNote = (props) => {
 const mapStateToProps = (state) => {
   return {
     allUserNotes: state.allUserNotes,
-    editedNotes: state.editedNotes, // Use 'editedNotes' instead of 'editNote'
+    editedNotes: state.editedNotes,
     noteEditingState: state.noteEditingState,
   };
 };

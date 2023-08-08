@@ -19,8 +19,8 @@ const TaskTitle = (props) => {
   } = props;
 
   const handleEditClick = () => {
-    editTitle(task.todo_title); // Set the editedTitle in Redux state
-    setEditing(task.id, true); // Set the isEditing for this specific task
+    editTitle(task.todo_title);
+    setEditing(task.id, true);
   };
 
   const handleSaveClick = async (e) => {
@@ -28,8 +28,8 @@ const TaskTitle = (props) => {
     console.log("Task ID to be updated:", task.id);
     console.log("Updated Title:", editedTitle);
 
-    await updateTask(task.id, { todo_title: editedTitle }); // Update the task title
-    setEditing(task.id, false); // Disable editing for this task
+    await updateTask(task.id, { todo_title: editedTitle });
+    setEditing(task.id, false);
   };
 
   return (
@@ -40,7 +40,7 @@ const TaskTitle = (props) => {
           <input
             type="text"
             value={editedTitle}
-            onChange={(e) => editTitle(e.target.value)} // Update the editedTitle in Redux state
+            onChange={(e) => editTitle(e.target.value)}
           />
         ) : (
           <label className="tasktitle" htmlFor={`task_${task.id}`}>

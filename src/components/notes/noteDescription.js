@@ -11,7 +11,6 @@ const NoteDescription = (props) => {
 
   useEffect(() => {
     props.getNotes(id);
-    console.log(props.allUserNotes);
   }, [id, props.getNotes]);
 
   return (

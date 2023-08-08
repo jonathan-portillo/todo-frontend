@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { getTasks, deleteTask, updateTask } from "../../actions/todoActions";
 import { connect } from "react-redux";
 import NoteDescription from "../notes/noteDescription";

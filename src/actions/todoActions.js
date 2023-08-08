@@ -264,6 +264,7 @@ export const setEditingNote = (notesId, isEditingNote) => {
   };
 };
 
+//EDIT OUR NOTE
 export const editNote = ({ setNoteId, note }) => {
   return {
     type: SET_EDITED_NOTE,
@@ -271,13 +272,15 @@ export const editNote = ({ setNoteId, note }) => {
   };
 };
 
+//EDIT NOTE?
+
 export const editNoteDescription = (editedNote) => {
   return {
     type: HANDLE_CHANGE_NOTE_DESCRIPTION,
     payload: editedNote,
   };
 };
-
+//OUR HANDLE_CHANGES
 export const handle_change_login = (e) => (dispatch) => {
   dispatch({ type: HANDLE_CHANGE_LOGIN, payload: e });
 };
