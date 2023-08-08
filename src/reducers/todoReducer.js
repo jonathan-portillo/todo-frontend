@@ -222,11 +222,15 @@ export const todoReducer = (state = initialState, action) => {
       return state;
     case UPDATE_NOTE_SUCCESS:
       const { noteId, updatedNote } = action.payload;
+
+      // Create a new array with updated note content
+      const updatedAllUserNotes = state.allUserNotes.map((note) =>
+        note.id === noteId ? { ...note, todo_list: updatedNote } : note
+      );
+
       return {
         ...state,
-        allUserNotes: state.allUserNotes.map((note) =>
-          note.id === noteId ? { ...note, todo_list: updatedNote } : note
-        ),
+        allUserNotes: updatedAllUserNotes,
       };
     case UPDATE_NOTE_FAIL:
       return {

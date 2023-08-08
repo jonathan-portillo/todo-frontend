@@ -211,7 +211,7 @@ export const updateNotes = (id, notes) => (dispatch) => {
     .then((res) => {
       dispatch({
         type: UPDATE_NOTE_SUCCESS,
-        payload: { id, updatedNote: notes.todo_list },
+        payload: { noteId: id, updatedNote: notes.todo_list },
       });
       console.log("Note has been updated", res.data);
     })
