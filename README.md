@@ -16,6 +16,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 7. Have fun!
 
 ## Status
+- Started wifeframing a few new styles. Might implement a way to toggle between list view and notes view to add more user usability.
 - Aiming to have everything completed by end of next week 8/18/23
 - Bugs fixed. 95% of main features are running with no issues. Next focus is to implement a universal delete button that sets that once clicked allows the delete buttons to be enabled in components. After that our main focus is going to be usablity and accessiblity. Device view points are next, user interactions are important. Then I can deploy the final version of app. Its been a long time coming!
 - Accidentally pushed commit with bugs. currently working on fixing bugs
