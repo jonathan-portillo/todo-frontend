@@ -12,7 +12,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 3. In your terminal run npm start, this will open up `localhost:3000`
 4. You need to also clone the backend `https://github.com/jonathan-portillo/todo-backend-/tree/main`
 5. Repeat step 2 in the backend folder.
-6. Run `npm run server` this well get the backend running for your application.
+6. Run `npm run server` in your terminal this well get the backend running for your application.
 7. Have fun!
 
 ## Status
