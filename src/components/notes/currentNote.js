@@ -54,10 +54,13 @@ const CurrentNote = (props) => {
             <>
               <input
                 type="text"
-                value={editedNotes[note.id] || note.todo_list}
+                value={editedNotes[note.id] || ""}
                 onChange={(e) => handleInputChange(e, note.id)}
               />
-              <button onClick={() => handleSaveClick(note.id)}>Save</button>
+              <IconButton>
+                <SaveIcon onClick={() => handleSaveClick(note.id)} />
+              </IconButton>
+              {/* <button onClick={() => handleSaveClick(note.id)}>Save</button> */}
             </>
           ) : (
             <>
