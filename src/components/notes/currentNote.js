@@ -6,6 +6,9 @@ import {
   setEditingNote,
   editNote,
 } from "../../actions/todoActions";
+import EditIcon from "@mui/icons-material/Edit";
+import IconButton from "@mui/material/IconButton";
+import SaveIcon from "@mui/icons-material/Save";
 
 const CurrentNote = (props) => {
   const {
@@ -58,10 +61,18 @@ const CurrentNote = (props) => {
             </>
           ) : (
             <>
-              <p>{note.todo_list}</p>
-              <button onClick={() => handleEditClick(note.id, note.todo_list)}>
-                Edit
-              </button>
+              <div className="notesbox">
+                <div className="note">
+                  <p>{note.todo_list}</p>
+                </div>
+                <div className="editbuttonnote">
+                  <IconButton>
+                    <EditIcon
+                      onClick={() => handleEditClick(note.id, note.todo_list)}
+                    />
+                  </IconButton>
+                </div>
+              </div>
             </>
           )}
         </React.Fragment>
