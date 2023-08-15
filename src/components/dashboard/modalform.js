@@ -2,8 +2,6 @@ import React, { useState } from "react";
 import Box from "@mui/material/Box";
 import AddCircleIcon from "@mui/icons-material/AddCircle";
 import IconButton from "@mui/material/IconButton";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
 import Modal from "@mui/material/Modal";
 import { createTheme, ThemeProvider } from "@mui/material";
 import NewTask from "../task/newtask";
