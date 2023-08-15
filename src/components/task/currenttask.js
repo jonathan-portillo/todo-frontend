@@ -15,11 +15,7 @@ const CurrentTasks = (props) => {
       <div className="currtasks">
         {props.allTasks.map((task) => (
           <Paper className="taskbox" key={task.id}>
-            <TaskTitle
-              task={task}
-              id={task.id}
-              // ...
-            />
+            <TaskTitle task={task} id={task.id} />
             <NoteDescription
               key={task.id}
               id={task.id}

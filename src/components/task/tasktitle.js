@@ -6,6 +6,10 @@ import {
   setEditing,
   editTitle,
 } from "../../actions/todoActions";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
+import IconButton from "@mui/material/IconButton";
+import SaveIcon from "@mui/icons-material/Save";
 
 const TaskTitle = (props) => {
   const {
@@ -48,12 +52,25 @@ const TaskTitle = (props) => {
           </label>
         )}
         <div className="buttonsss">
-          {isEditing ? (
-            <button onClick={handleSaveClick}>Save</button>
-          ) : (
-            <button onClick={handleEditClick}>Edit</button>
-          )}
-          <button onClick={() => deleteTask(task.id)}>Delete</button>
+          <div className="buttonscontainer">
+            {isEditing ? (
+              <IconButton>
+                <SaveIcon style={{ fontSize: 20 }} onClick={handleSaveClick} />
+              </IconButton>
+            ) : (
+              // <button onClick={handleSaveClick}>Save</button>
+              <IconButton>
+                <EditIcon style={{ fontSize: 20 }} onClick={handleEditClick} />
+              </IconButton>
+            )}
+            <IconButton>
+              <DeleteOutlineIcon
+                style={{ fontSize: 20 }}
+                onClick={() => deleteTask(task.id)}
+              />
+            </IconButton>
+            {/* <button onClick={() => deleteTask(task.id)}>Delete</button> */}
+          </div>
         </div>
       </div>
     </>
