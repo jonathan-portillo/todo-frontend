@@ -276,7 +276,7 @@ body {
 /* task components */
 
 .taskbox {
-  margin: 0% 1.5% 1% 1%;
+  margin: 1.5% 1% 1%;
   width: 20vw;
   height: 40vh;
   display: flex;
@@ -329,6 +329,6 @@ body {
   margin-left: 15%;
 }
 
-/* * {
+* {
   border: 1px solid black;
-} */
+}
