@@ -298,6 +298,9 @@ body {
   text-overflow: ellipsis;
   display: flex;
   justify-content: flex-start;
+  font-weight: bold;
+  font-size: 1.5rem;
+  margin-left: 2%;
 }
 
 .toggle {
@@ -329,6 +332,6 @@ body {
   margin-left: 15%;
 }
 
-* {
+/* * {
   border: 1px solid black;
-}
+} */
