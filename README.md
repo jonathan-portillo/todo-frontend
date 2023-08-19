@@ -16,6 +16,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 7. Have fun!
 
 ## Status
+- Ran into a few issues moved to 8/25 
 - Looking to shift from css to styled components. 
 - Deciding on a new color scheme to have more engagability.
 - Started wifeframing a few new styles. Might implement a way to toggle between list view and notes view to add more user usability.
