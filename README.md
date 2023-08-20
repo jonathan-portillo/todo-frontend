@@ -16,6 +16,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 7. Have fun!
 
 ## Status
+- Issues implementing a delete button that toggles delete option on all components. 
 - Ran into a few issues moved to 8/25 
 - Looking to shift from css to styled components. 
 - Deciding on a new color scheme to have more engagability.
