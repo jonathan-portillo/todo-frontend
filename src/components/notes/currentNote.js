@@ -30,7 +30,6 @@ const CurrentNote = (props) => {
   );
 
   const handleEditClick = (noteId, noteContent) => {
-    // Set the initial value of editedNote
     editNote({ setNoteId: noteId, note: noteContent });
     setEditingNote(noteId, true);
   };
@@ -43,7 +42,7 @@ const CurrentNote = (props) => {
 
   const handleInputChange = (e, noteId) => {
     const updatedNote = e.target.value;
-    editNote({ setNoteId: noteId, note: updatedNote }); // Update the local state of editedNote
+    editNote({ setNoteId: noteId, note: updatedNote });
   };
 
   return (
@@ -60,7 +59,6 @@ const CurrentNote = (props) => {
               <IconButton>
                 <SaveIcon onClick={() => handleSaveClick(note.id)} />
               </IconButton>
-              {/* <button onClick={() => handleSaveClick(note.id)}>Save</button> */}
             </>
           ) : (
             <>
