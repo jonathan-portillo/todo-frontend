@@ -56,6 +56,7 @@ const initialState = {
   isEditing: false, //title
   isEditingNote: false, //note
   noteEditingState: {}, // Object to track editing state per note
+  enableDelete: false, //enable option to delete notes.
 };
 
 export const todoReducer = (state = initialState, action) => {

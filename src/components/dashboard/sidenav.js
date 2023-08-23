@@ -10,6 +10,7 @@ const SideNav = () => {
   const handleClickDelete = (e) => {
     e.preventDefault();
     setEnableDelete(true);
+    console.log("state", enableDelete);
   };
 
   const theme = createTheme({
