@@ -31,6 +31,9 @@ import {
   SET_EDITED_TITLE,
   SET_EDIT_NOTE,
   SET_EDITED_NOTE,
+  ENABLE_DELETE,
+  ENABLE_DELETE_SUCCESS,
+  ENABLE_DELETE_FAIL,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -247,6 +250,18 @@ export const todoReducer = (state = initialState, action) => {
       };
 
     case UPDATE_TASK_FAIL:
+      return {
+        state,
+      };
+    case ENABLE_DELETE:
+      return {
+        state,
+      };
+    case ENABLE_DELETE_SUCCESS:
+      return {
+        state,
+      };
+    case ENABLE_DELETE_FAIL:
       return {
         state,
       };
