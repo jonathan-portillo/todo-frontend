@@ -34,6 +34,8 @@ import {
   ENABLE_DELETE,
   ENABLE_DELETE_SUCCESS,
   ENABLE_DELETE_FAIL,
+  ENABLE_ANY_TITLE_EDITING,
+  DISABLE_ANY_TITLE_EDITING,
 } from "../actions/todoActions";
 
 const initialState = {
@@ -58,6 +60,7 @@ const initialState = {
   editedNotes: {},
   isEditing: false, //title
   isEditingNote: false, //note
+  isAnytitleEditing: false,
   noteEditingState: {}, // Object to track editing state per note
   enableDelete: false, //enable option to delete notes.
 };
@@ -264,6 +267,16 @@ export const todoReducer = (state = initialState, action) => {
     case ENABLE_DELETE_FAIL:
       return {
         state,
+      };
+    case ENABLE_ANY_TITLE_EDITING:
+      return {
+        ...state,
+        isAnytitleEditing: true,
+      };
+    case DISABLE_ANY_TITLE_EDITING:
+      return {
+        ...state,
+        isAnytitleEditing: false,
       };
 
     default:
