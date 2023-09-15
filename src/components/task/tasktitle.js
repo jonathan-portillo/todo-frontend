@@ -22,8 +22,8 @@ const TaskTitle = (props) => {
     editedTitle,
     setEditing,
     editTitle,
-
     enableAnyTitleEditing,
+    enableDelete,
   } = props;
 
   const handleEditClick = () => {
@@ -66,10 +66,8 @@ const TaskTitle = (props) => {
                 <SaveIcon style={{ fontSize: 20 }} onClick={handleSaveClick} />
               </IconButton>
             ) : (
-              // <button onClick={handleSaveClick}>Save</button>
               <>
                 {!props.isAnyTitleEditing ? (
-                  // Render the edit button only when no title is being edited
                   <IconButton>
                     <EditIcon
                       style={{ fontSize: 20 }}
@@ -77,20 +75,20 @@ const TaskTitle = (props) => {
                     />
                   </IconButton>
                 ) : (
-                  // Render a disabled edit button when any title is being edited
                   <IconButton disabled>
                     <EditIcon style={{ fontSize: 20 }} />
                   </IconButton>
                 )}
               </>
             )}
-            <IconButton>
-              <DeleteOutlineIcon
-                style={{ fontSize: 20 }}
-                onClick={() => deleteTask(task.id)}
-              />
-            </IconButton>
-            {/* <button onClick={() => deleteTask(task.id)}>Delete</button> */}
+            {enableDelete ? (
+              <IconButton>
+                <DeleteOutlineIcon
+                  style={{ fontSize: 20 }}
+                  onClick={() => deleteTask(task.id)}
+                />
+              </IconButton>
+            ) : null}
           </div>
         </div>
       </div>
@@ -104,6 +102,7 @@ const mapStateToProps = (state, ownProps) => {
     editedTitle: state.editedTitle,
     isEditing: state.isEditing[taskId] || false,
     isAnyTitleEditing: state.isAnytitleEditing,
+    enableDelete: state.enableDelete,
   };
 };
 
