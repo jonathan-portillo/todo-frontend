@@ -5,6 +5,8 @@ import {
   updateTask,
   setEditing,
   editTitle,
+  enableAnyTitleEditing,
+  disableAnyTitleEditing,
 } from "../../actions/todoActions";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteOutlineIcon from "@mui/icons-material/DeleteOutline";
@@ -20,11 +22,16 @@ const TaskTitle = (props) => {
     editedTitle,
     setEditing,
     editTitle,
+
+    enableAnyTitleEditing,
   } = props;
 
   const handleEditClick = () => {
-    editTitle(task.todo_title);
-    setEditing(task.id, true);
+    if (!props.isAnyTitleEditing) {
+      editTitle(task.todo_title);
+      setEditing(task.id, true);
+      enableAnyTitleEditing();
+    }
   };
 
   const handleSaveClick = async (e) => {
@@ -34,6 +41,7 @@ const TaskTitle = (props) => {
 
     await updateTask(task.id, { todo_title: editedTitle });
     setEditing(task.id, false);
+    props.disableAnyTitleEditing();
   };
 
   return (
@@ -59,9 +67,22 @@ const TaskTitle = (props) => {
               </IconButton>
             ) : (
               // <button onClick={handleSaveClick}>Save</button>
-              <IconButton>
-                <EditIcon style={{ fontSize: 20 }} onClick={handleEditClick} />
-              </IconButton>
+              <>
+                {!props.isAnyTitleEditing ? (
+                  // Render the edit button only when no title is being edited
+                  <IconButton>
+                    <EditIcon
+                      style={{ fontSize: 20 }}
+                      onClick={handleEditClick}
+                    />
+                  </IconButton>
+                ) : (
+                  // Render a disabled edit button when any title is being edited
+                  <IconButton disabled>
+                    <EditIcon style={{ fontSize: 20 }} />
+                  </IconButton>
+                )}
+              </>
             )}
             <IconButton>
               <DeleteOutlineIcon
@@ -82,6 +103,7 @@ const mapStateToProps = (state, ownProps) => {
   return {
     editedTitle: state.editedTitle,
     isEditing: state.isEditing[taskId] || false,
+    isAnyTitleEditing: state.isAnytitleEditing,
   };
 };
 
@@ -90,4 +112,6 @@ export default connect(mapStateToProps, {
   updateTask,
   setEditing,
   editTitle,
+  enableAnyTitleEditing,
+  disableAnyTitleEditing,
 })(TaskTitle);
