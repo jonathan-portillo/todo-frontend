@@ -16,10 +16,12 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 7. Have fun!
 
 ## Status
+
+- Unexpected Hiatus over back to the grind.
 - Resolved issue now back to styling
-- Issues implementing a delete button that toggles delete option on all components. 
-- Ran into a few issues moved to 8/25 
-- Looking to shift from css to styled components. 
+- Issues implementing a delete button that toggles delete option on all components.
+- Ran into a few issues moved to 8/25
+- Looking to shift from css to styled components.
 - Deciding on a new color scheme to have more engagability.
 - Started wifeframing a few new styles. Might implement a way to toggle between list view and notes view to add more user usability.
 - Aiming to have everything completed by end of next week 8/18/23
