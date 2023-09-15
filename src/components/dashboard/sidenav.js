@@ -47,7 +47,7 @@ const SideNav = (props) => {
         <br />
         {enableDelete ? (
           <>
-            <p>Cancel Delete</p>
+            <p>Cancel</p>
             <IconButton onClick={handleClickCancelDelete} color="primary">
               <CancelIcon style={{ fontSize: 50 }} aria-label="cancel delete" />
             </IconButton>
