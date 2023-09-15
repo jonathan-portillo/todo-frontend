@@ -51,7 +51,7 @@ export const SET_EDITED_TITLE = "SET_EDITED_TITLE";
 export const SET_EDIT_NOTE = "SET_EDIT_NOTE";
 export const SET_EDITED_NOTE = "SET_EDITED_NOTE";
 
-export const ENABLE_DELETE = "ENABLE_DELETE";
+export const SET_ENABLE_DELETE = "SET_ENABLE_DELETE";
 export const ENABLE_DELETE_SUCCESS = "ENABLE_DELETE_SUCCESS";
 export const ENABLE_DELETE_FAIL = "ENABLE_DELETE_FAIL";
 
@@ -300,6 +300,12 @@ export const disableAnyTitleEditing = () => {
     type: DISABLE_ANY_TITLE_EDITING,
   };
 };
+
+//ENABLE DELETE
+export const setEnableDelete = (isEnabled) => ({
+  type: SET_ENABLE_DELETE,
+  payload: isEnabled,
+});
 
 //OUR HANDLE_CHANGES
 export const handle_change_login = (e) => (dispatch) => {

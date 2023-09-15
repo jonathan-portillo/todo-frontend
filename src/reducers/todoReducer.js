@@ -31,7 +31,7 @@ import {
   SET_EDITED_TITLE,
   SET_EDIT_NOTE,
   SET_EDITED_NOTE,
-  ENABLE_DELETE,
+  SET_ENABLE_DELETE,
   ENABLE_DELETE_SUCCESS,
   ENABLE_DELETE_FAIL,
   ENABLE_ANY_TITLE_EDITING,
@@ -256,9 +256,10 @@ export const todoReducer = (state = initialState, action) => {
       return {
         state,
       };
-    case ENABLE_DELETE:
+    case SET_ENABLE_DELETE:
       return {
-        state,
+        ...state,
+        enableDelete: action.payload,
       };
     case ENABLE_DELETE_SUCCESS:
       return {
