@@ -55,6 +55,9 @@ export const ENABLE_DELETE = "ENABLE_DELETE";
 export const ENABLE_DELETE_SUCCESS = "ENABLE_DELETE_SUCCESS";
 export const ENABLE_DELETE_FAIL = "ENABLE_DELETE_FAIL";
 
+export const ENABLE_ANY_TITLE_EDITING = "ENABLE_ANY_TITLE_EDITING";
+export const DISABLE_ANY_TITLE_EDITING = "DISABLE_ANY_TITLE_EDITING";
+
 //SIGN UP
 export const createUser = (newUser) => (dispatch) => {
   dispatch({ type: ADD_NEW_USER });
@@ -252,8 +255,6 @@ export const setEditing = (taskId, isEditing) => {
   };
 };
 
-
-
 //TO EDIT OUR TITLE
 export const editTitle = (title) => {
   return {
@@ -286,6 +287,20 @@ export const editNoteDescription = (editedNote) => {
     payload: editedNote,
   };
 };
+
+//CHECK IF A TITLE IS BEING EDITED
+export const enableAnyTitleEditing = () => {
+  return {
+    type: ENABLE_ANY_TITLE_EDITING,
+  };
+};
+
+export const disableAnyTitleEditing = () => {
+  return {
+    type: DISABLE_ANY_TITLE_EDITING,
+  };
+};
+
 //OUR HANDLE_CHANGES
 export const handle_change_login = (e) => (dispatch) => {
   dispatch({ type: HANDLE_CHANGE_LOGIN, payload: e });
