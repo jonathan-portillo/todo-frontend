@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import IconButton from "@mui/material/IconButton";
 import RemoveCircleIcon from "@mui/icons-material/RemoveCircle";
+import CancelIcon from "@mui/icons-material/Cancel";
 import { createTheme, ThemeProvider } from "@mui/material";
 import ModalForm from "./modalform";
 import { setEnableDelete } from "../../actions/todoActions";
@@ -16,6 +17,11 @@ const SideNav = (props) => {
   const handleClickDelete = (e) => {
     e.preventDefault();
     setEnableDelete(true);
+  };
+
+  const handleClickCancelDelete = (e) => {
+    e.preventDefault();
+    setEnableDelete(false);
   };
 
   const theme = createTheme({
@@ -38,13 +44,22 @@ const SideNav = (props) => {
             Delete Tasks
           </RemoveCircleIcon>
         </IconButton>
+        <br />
+        {enableDelete ? (
+          <>
+            <p>Cancel Delete</p>
+            <IconButton onClick={handleClickCancelDelete} color="primary">
+              <CancelIcon style={{ fontSize: 50 }} aria-label="cancel delete" />
+            </IconButton>
+          </>
+        ) : null}
       </div>
     </ThemeProvider>
   );
 };
 
 const mapStateToProps = (state) => ({
-  enableDelete: state.enableDelete, // Map enableDelete from Redux state
+  enableDelete: state.enableDelete,
 });
 
 export default connect(mapStateToProps, { setEnableDelete })(SideNav);
