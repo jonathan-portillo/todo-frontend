@@ -17,6 +17,9 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- Fixed a bug with editing multiple titles at the same time, you can now only edit one title at a time.
+- Delete button now only shows up in a component when you toggle the delete button on the side navigation.
+- Cancel delete option created to toggle off deleting components.
 - Unexpected Hiatus over back to the grind.
 - Resolved issue now back to styling
 - Issues implementing a delete button that toggles delete option on all components.
