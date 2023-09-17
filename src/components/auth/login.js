@@ -69,7 +69,7 @@ const Login = (props) => {
             />
           </label>
           <br />
-          <Button variant="contained" type="submit">
+          <Button disabled={disable} variant="contained" type="submit">
             Sign in
           </Button>
           <br />
