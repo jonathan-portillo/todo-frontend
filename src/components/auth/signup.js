@@ -20,7 +20,6 @@ const SignUp = (props) => {
 
   useEffect(() => {
     formSchema.isValid(props.signUpForm).then((valid) => {
-      console.log("valid?", valid);
       setDisable(!valid);
     });
   }, [props.signUpForm]);
