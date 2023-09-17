@@ -1,12 +1,15 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import { connect } from "react-redux";
 import { handle_change_login, logUserIn } from "../../actions/todoActions";
 import Paper from "@mui/material/Paper";
+import * as yup from "yup";
 
 const Login = (props) => {
+  const [disable, setDisable] = useState(true);
+
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
@@ -16,6 +19,18 @@ const Login = (props) => {
 
     navigate("/tasknotes");
   };
+
+  const formSchema = yup.object().shape({
+    username: yup.string().required("Username is a required field."),
+    password: yup.string().required("Password is a required field."),
+  });
+
+  useEffect(() => {
+    formSchema.isValid(props.loginForm).then((valid) => {
+      console.log("valid?", valid);
+      setDisable(!valid);
+    });
+  }, [props.loginForm]);
 
   return (
     <>
