@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { createUser, handle_change_signup } from "../../actions/todoActions";
 import { connect } from "react-redux";
@@ -6,9 +6,24 @@ import Button from "@mui/material/Button";
 import Textfield from "@mui/material/TextField";
 import Paper from "@mui/material/Paper";
 import Nav from "../standardcomps/nav";
+import * as yup from "yup";
 
 const SignUp = (props) => {
+  const [disable, setDisable] = useState(true);
+
   let navigate = useNavigate();
+
+  const formSchema = yup.object().shape({
+    username: yup.string().required("Username is a required field."),
+    password: yup.string().required("Password is a required field."),
+  });
+
+  useEffect(() => {
+    formSchema.isValid(props.signUpForm).then((valid) => {
+      console.log("valid?", valid);
+      setDisable(!valid);
+    });
+  }, [props.signUpForm]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -55,7 +70,7 @@ const SignUp = (props) => {
             />
           </label>
           <br />
-          <Button variant="contained" type="submit">
+          <Button disabled={disable} variant="contained" type="submit">
             Sign up!
           </Button>
           <br />
