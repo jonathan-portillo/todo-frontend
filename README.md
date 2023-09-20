@@ -17,6 +17,7 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 
 ## Status
 
+- No longer using local host now running API end points to run Task Note.
 - Fixed a bug with editing multiple titles at the same time, you can now only edit one title at a time.
 - Delete button now only shows up in a component when you toggle the delete button on the side navigation.
 - Cancel delete option created to toggle off deleting components.
