@@ -22,10 +22,12 @@ const NewNote = (props) => {
           name="todo_list"
           type="text"
           multiline
-          rows={3}
-          defaultValue="Default Value"
+          rows={null}
+          defaultValue="Type in your note"
+          style={{ height: "100%" }}
           value={props.newNoteDescription.todo_list}
           onChange={(e) => props.handle_change_note_description(e.target.value)}
+          className="notepad-input"
         />
         <button type="submit">Submit</button>
       </form>

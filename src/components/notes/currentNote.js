@@ -9,6 +9,7 @@ import {
 import EditIcon from "@mui/icons-material/Edit";
 import IconButton from "@mui/material/IconButton";
 import SaveIcon from "@mui/icons-material/Save";
+import { TextField } from "@mui/material";
 
 const CurrentNote = (props) => {
   const {
@@ -45,30 +46,53 @@ const CurrentNote = (props) => {
     editNote({ setNoteId: noteId, note: updatedNote });
   };
 
+  const formatDescription = (text) => {
+    return text.split("\n").map((line, index) => (
+      <React.Fragment key={index}>
+        {line}
+        {index < text.split("\n").length - 1 && <br />}{" "}
+      </React.Fragment>
+    ));
+  };
+
   return (
     <div>
       {filteredNotes.map((note) => (
         <React.Fragment key={note.id}>
           {props.noteEditingState[note.id] ? (
             <>
-              <input
-                type="text"
-                value={editedNotes[note.id] || ""}
-                onChange={(e) => handleInputChange(e, note.id)}
-              />
-              <IconButton>
-                <SaveIcon onClick={() => handleSaveClick(note.id)} />
-              </IconButton>
+              <div className="editbox">
+                <TextField
+                  id="outlined-multiline-flexible"
+                  type="text"
+                  multiline
+                  rows={null}
+                  defaultValue="Type in your note"
+                  style={{ height: "100%" }}
+                  value={editedNotes[note.id] || ""}
+                  onChange={(e) => handleInputChange(e, note.id)}
+                  className="notepad-input"
+                />
+                <div className="saveicon">
+                  <IconButton>
+                    <SaveIcon
+                      style={{ fontSize: 18 }}
+                      onClick={() => handleSaveClick(note.id)}
+                    />
+                  </IconButton>
+                </div>
+              </div>
             </>
           ) : (
             <>
               <div className="notesbox">
                 <div className="note">
-                  <p>{note.todo_list}</p>
+                  <p>{formatDescription(note.todo_list)}</p>
                 </div>
                 <div className="editbuttonnote">
                   <IconButton>
                     <EditIcon
+                      style={{ fontSize: 18 }}
                       onClick={() => handleEditClick(note.id, note.todo_list)}
                     />
                   </IconButton>
