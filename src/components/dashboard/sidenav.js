@@ -10,9 +10,7 @@ import { setEnableDelete } from "../../actions/todoActions";
 const SideNav = (props) => {
   const { enableDelete, setEnableDelete } = props;
 
-  useEffect(() => {
-    console.log("state", enableDelete); // Log the updated enableDelete value
-  }, [enableDelete]);
+  useEffect(() => {}, [enableDelete]);
 
   const handleClickDelete = (e) => {
     e.preventDefault();

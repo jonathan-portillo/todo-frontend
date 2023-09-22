@@ -68,7 +68,6 @@ export const createUser = (newUser) => (dispatch) => {
         type: ADD_NEW_USER_SUCCESS,
         payload: res.data,
       });
-      console.log(res.data);
       localStorage.setItem("id", res.data.id);
       localStorage.setItem("token", res.data.token);
     })
@@ -88,7 +87,6 @@ export const logUserIn = (cred) => (dispatch) => {
     .then((res) => {
       dispatch({ type: LOGIN_SUCCESS, payload: res.data });
 
-      console.log(res.data);
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("id", res.data.id);
     })
@@ -127,8 +125,6 @@ export const createNewTask = (task) => (dispatch) => {
         type: NEW_TASK_SUCCESS,
         payload: { ...res.data },
       });
-
-      console.log(res.data);
     })
     .catch((err) => {
       dispatch({
@@ -149,7 +145,6 @@ export const updateTask = (id, task) => (dispatch) => {
         type: UPDATE_TASK_SUCCESS,
         payload: { id, updatedTask: task.todo_title }, // Send the updated task title
       });
-      console.log("Title has been updated", res.data);
     })
     .catch((err) => {
       dispatch({
@@ -199,7 +194,6 @@ export const createNewNote = (id, notes) => (dispatch) => {
         type: NEW_NOTE_DESCRIPTION_SUCCESS,
         payload: res.data,
       });
-      console.log(res);
     })
     .catch((err) => {
       dispatch({
@@ -220,7 +214,6 @@ export const updateNotes = (id, notes) => (dispatch) => {
         type: UPDATE_NOTE_SUCCESS,
         payload: { noteId: id, updatedNote: notes.todo_list },
       });
-      console.log("Note has been updated", res.data);
     })
     .catch((err) => {
       dispatch({

@@ -27,7 +27,6 @@ const Login = (props) => {
 
   useEffect(() => {
     formSchema.isValid(props.loginForm).then((valid) => {
-      console.log("valid?", valid);
       setDisable(!valid);
     });
   }, [props.loginForm]);

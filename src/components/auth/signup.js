@@ -27,7 +27,6 @@ const SignUp = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     await props.createUser(props.signUpForm);
-    console.log(props.signUpForm);
 
     navigate("/tasknotes");
   };
