@@ -379,12 +379,13 @@ body {
 
 /* Working on notes */
 .notepad-input {
+  margin: 0;
   border: none;
-  background-color: #fff; /* Set a white background to resemble paper */
-  width: 96%; /* Make the textarea fill its container */
+  background-color: #fff;
+  width: 96%;
   height: 100%;
-  resize: none; /* Prevent users from resizing the textarea */
-  animation: typingAnimation 2s steps(40) forwards; /* Apply the typing animation */
+  resize: none;
+  animation: typingAnimation 2s steps(40) forwards;
 }
 
 /* * {
