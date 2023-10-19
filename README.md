@@ -16,6 +16,8 @@ Prior commits can also be found here https://github.com/jonathan-portillo/TODO
 7. Have fun!
 
 ## Status
+
+- Planning on updating a few functions of the app to allow for better user interactivity. Want to ensure there is validation when signing in, some type of way to ensure that information submitted was wrong or succesful.
 - Fully deployed looking to see if there are any leftover bugs
 - No longer using local host now running API end points to run Task Note.
 - Fixed a bug with editing multiple titles at the same time, you can now only edit one title at a time.
